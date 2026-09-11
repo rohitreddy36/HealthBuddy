@@ -1,41 +1,34 @@
 import { useChat } from "@ai-sdk/react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { DefaultChatTransport, type UIMessage } from "ai";
 import { Loader2, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { supabase } from "@/integrations/supabase/client";
+import { getChatHistory, saveChatMessage } from "@/lib/chat.functions";
 
 export const Route = createFileRoute("/_authenticated/chat")({
   component: Chat,
 });
 
 function Chat() {
+  const fetchHistory = useServerFn(getChatHistory);
   const [initial, setInitial] = useState<UIMessage[] | null>(null);
 
   useEffect(() => {
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) {
-        setInitial([]);
-        return;
-      }
-      const { data } = await supabase
-        .from("chat_messages")
-        .select("id, role, content, created_at")
-        .eq("user_id", u.user.id)
-        .order("created_at");
+      const history = await fetchHistory();
       setInitial(
-        (data ?? []).map((m) => ({
+        history.map((m) => ({
           id: m.id,
           role: m.role as "user" | "assistant",
           parts: [{ type: "text", text: m.content }],
         })),
       );
     })();
-  }, []);
+  }, [fetchHistory]);
 
   if (!initial) {
     return (
@@ -48,6 +41,7 @@ function Chat() {
 }
 
 function ChatWindow({ initial }: { initial: UIMessage[] }) {
+  const persist = useServerFn(saveChatMessage);
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const persistedIds = useRef(new Set(initial.map((m) => m.id)));
@@ -62,8 +56,6 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
     const isStreaming = status === "submitted" || status === "streaming";
     if (isStreaming) return;
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
       const newOnes = messages.filter((m) => !persistedIds.current.has(m.id));
       for (const m of newOnes) {
         const text = m.parts
@@ -71,13 +63,12 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
           .join("")
           .trim();
         if (!text) continue;
-        await supabase
-          .from("chat_messages")
-          .insert({ user_id: u.user.id, role: m.role, content: text });
+        if (m.role !== "user" && m.role !== "assistant") continue;
+        await persist({ data: { role: m.role, content: text } });
         persistedIds.current.add(m.id);
       }
     })();
-  }, [messages, status]);
+  }, [messages, status, persist]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });

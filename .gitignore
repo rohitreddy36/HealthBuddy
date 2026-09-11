@@ -33,3 +33,18 @@ dist-ssr
 *.env
 .env.local
 .env.production
+master_prompt_template.txt
+
+# Local-only tooling / agent config
+.agents/
+# Ignore .github/ except the daily-reminder workflow (needed for the
+# 5:30 AM auto-email cron to actually run once this is pushed to GitHub).
+.github/*
+!.github/workflows/
+.github/workflows/*
+!.github/workflows/daily-reminder.yml
+
+# Supabase CLI local state (contains local dev secrets, machine-specific)
+supabase/.branches
+supabase/.temp
+

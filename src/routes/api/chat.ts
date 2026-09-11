@@ -23,7 +23,7 @@ export const Route = createFileRoute("/api/chat")({
 
         const provider = createGoogleGenerativeAI({ apiKey: key });
         const result = streamText({
-          model: provider("gemini-2.5-flash"),
+          model: provider("gemini-3.8-flash"),
           system: SYSTEM,
           messages: await convertToModelMessages(messages),
         });

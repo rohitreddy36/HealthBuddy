@@ -2,12 +2,12 @@ import { createServerFn } from "@tanstack/react-start";
 import { generateText } from "ai";
 import { z } from "zod";
 
-import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireAuth } from "@/integrations/supabase/auth-middleware";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 
-const MODEL = "gemini-2.5-flash";
+export const MODEL = "gemini-3.8-flash";
 
-function gateway() {
+export function gateway() {
   const key = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
   if (!key) throw new Error("Missing GEMINI_API_KEY in environment variables");
   return createGoogleGenerativeAI({ apiKey: key });
@@ -63,7 +63,7 @@ function fallbackFollowUps(symptoms: string): z.infer<typeof followUpSchema> {
 }
 
 export const getFollowUpQuestions = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
+  .middleware([requireAuth])
   .inputValidator((i: unknown) =>
     z
       .object({
@@ -122,7 +122,11 @@ function fallbackAnalysis(symptoms: string): z.infer<typeof analysisSchema> {
   return {
     summary: `Your symptoms (${symptoms.trim() || "the symptoms you described"}) may fit with a common short-term illness, but this guidance is not a diagnosis. Keep monitoring how you feel and seek professional advice if symptoms worsen or persist.`,
     possible_concerns: [{ name: "Common viral or mild respiratory illness", confidence: "low" }],
-    self_care: ["Rest as much as you can", "Use warm fluids or lozenges for throat comfort", "Monitor temperature and symptom changes"],
+    self_care: [
+      "Rest as much as you can",
+      "Use warm fluids or lozenges for throat comfort",
+      "Monitor temperature and symptom changes",
+    ],
     diet: {
       include: ["Warm soups", "Soft foods", "Fruit or other vitamin-rich foods"],
       avoid: ["Alcohol", "Very spicy foods", "Heavy meals if appetite is low"],
@@ -134,15 +138,20 @@ function fallbackAnalysis(symptoms: string): z.infer<typeof analysisSchema> {
       },
       hydration: "Sip water or warm non-caffeinated drinks regularly.",
     },
-    exercise: ["Choose gentle movement only if you feel up to it", "Avoid strenuous exercise while feverish or very fatigued"],
+    exercise: [
+      "Choose gentle movement only if you feel up to it",
+      "Avoid strenuous exercise while feverish or very fatigued",
+    ],
     when_to_seek_care: "monitor_at_home",
-    care_reason: "Many mild symptoms improve with rest and supportive care, but a clinician can help if symptoms persist, worsen, or concern you.",
-    potential_complications: "Ignoring worsening symptoms may delay care for dehydration, breathing problems, or an infection that needs treatment.",
+    care_reason:
+      "Many mild symptoms improve with rest and supportive care, but a clinician can help if symptoms persist, worsen, or concern you.",
+    potential_complications:
+      "Ignoring worsening symptoms may delay care for dehydration, breathing problems, or an infection that needs treatment.",
   };
 }
 
 export const analyzeSymptoms = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
+  .middleware([requireAuth])
   .inputValidator((i: unknown) =>
     z
       .object({
@@ -198,9 +207,7 @@ const documentSchema = z.object({
   document_type: z.string(),
   simple_summary: z.string(),
   key_findings: z.array(z.object({ term: z.string(), explanation: z.string() })),
-  values_to_watch: z.array(
-    z.object({ name: z.string(), value: z.string(), note: z.string() }),
-  ),
+  values_to_watch: z.array(z.object({ name: z.string(), value: z.string(), note: z.string() })),
   questions_for_doctor: z.array(z.string()),
   suggested_tracking: z.array(z.string()),
 });
@@ -223,7 +230,7 @@ function fallbackDocAnalysis(text: string): z.infer<typeof documentSchema> {
 }
 
 export const analyzeDocument = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
+  .middleware([requireAuth])
   .inputValidator((i: unknown) =>
     z
       .object({
@@ -290,27 +297,36 @@ Return ONLY valid JSON of this exact shape:
   });
 
 export const listDashboard = createServerFn({ method: "GET" })
-  .middleware([requireSupabaseAuth])
+  .middleware([requireAuth])
   .handler(async ({ context }) => {
     const { supabase, userId } = context;
-    const [{ data: analyses }, { data: documents }, { data: profile }] = await Promise.all([
-      supabase
-        .from("symptom_analyses")
-        .select("id, initial_symptoms, created_at, result")
-        .eq("user_id", userId)
-        .order("created_at", { ascending: false })
-        .limit(10),
-      supabase
-        .from("documents")
-        .select("id, title, doc_type, created_at")
-        .eq("user_id", userId)
-        .order("created_at", { ascending: false })
-        .limit(10),
-      supabase.from("profiles").select("*").eq("id", userId).maybeSingle(),
-    ]);
+    const [{ data: analyses }, { data: documents }, { data: profile }, { data: quickQuestions }] =
+      await Promise.all([
+        supabase
+          .from("symptom_analyses")
+          .select("id, initial_symptoms, created_at, result")
+          .eq("user_id", userId)
+          .order("created_at", { ascending: false })
+          .limit(10),
+        supabase
+          .from("documents")
+          .select("id, title, doc_type, created_at")
+          .eq("user_id", userId)
+          .order("created_at", { ascending: false })
+          .limit(10),
+        supabase.from("profiles").select("*").eq("id", userId).maybeSingle(),
+        supabase
+          .from("assistant_messages")
+          .select("id, content, created_at")
+          .eq("user_id", userId)
+          .eq("role", "user")
+          .order("created_at", { ascending: false })
+          .limit(5),
+      ]);
     return {
       analyses: analyses ?? [],
       documents: documents ?? [],
       profile: profile ?? null,
+      quickQuestions: quickQuestions ?? [],
     };
   });
