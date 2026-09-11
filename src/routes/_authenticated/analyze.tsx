@@ -1,6 +1,7 @@
+import { useUser } from "@clerk/tanstack-react-start";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Download, Loader2, Mail } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -11,8 +12,10 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { analyzeSymptoms, getFollowUpQuestions } from "@/lib/health.functions";
+import { sendMyReminderEmail } from "@/lib/reminder.functions";
 
 export const Route = createFileRoute("/_authenticated/analyze")({
+  head: () => ({ meta: [{ title: "Symptom Check — AIL Health" }] }),
   component: Analyze,
 });
 
@@ -21,11 +24,15 @@ type Analysis = Awaited<ReturnType<typeof analyzeSymptoms>>;
 type FollowUps = Awaited<ReturnType<typeof getFollowUpQuestions>>;
 
 function Analyze() {
+  const { user } = useUser();
   const fetchFollow = useServerFn(getFollowUpQuestions);
   const fetchAnalysis = useServerFn(analyzeSymptoms);
+  const sendReminder = useServerFn(sendMyReminderEmail);
 
   const [stage, setStage] = useState<Stage>("input");
   const [loading, setLoading] = useState(false);
+  const [emailing, setEmailing] = useState(false);
+  const [analyzedAt, setAnalyzedAt] = useState<Date | null>(null);
   const [form, setForm] = useState({
     symptoms: "",
     duration: "",
@@ -59,6 +66,7 @@ function Analyze() {
         data: { ...form, selectedFollowUps: Array.from(selected) },
       });
       setResult(r);
+      setAnalyzedAt(new Date());
       setStage("result");
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Could not analyze");
@@ -72,6 +80,18 @@ function Analyze() {
     setResult(null);
     setFollowUps(null);
     setSelected(new Set());
+  }
+
+  async function emailMe() {
+    setEmailing(true);
+    try {
+      const r = await sendReminder();
+      toast.success(`Emailed to ${r.sentTo}`);
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Could not send the email");
+    } finally {
+      setEmailing(false);
+    }
   }
 
   return (
@@ -181,6 +201,28 @@ function Analyze() {
 
       {stage === "result" && result && (
         <div className="space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs text-muted-foreground">
+              {user?.primaryEmailAddress?.emailAddress && (
+                <>Report for {user.primaryEmailAddress.emailAddress} &middot; </>
+              )}
+              Generated {analyzedAt ? analyzedAt.toLocaleString() : ""}
+            </p>
+            <div className="flex gap-2 print:hidden">
+              <Button variant="outline" size="sm" onClick={emailMe} disabled={emailing}>
+                {emailing ? (
+                  <Loader2 className="size-3.5 animate-spin" />
+                ) : (
+                  <Mail className="size-3.5" />
+                )}
+                Email me this
+              </Button>
+              <Button variant="outline" size="sm" onClick={() => window.print()}>
+                <Download className="size-3.5" /> Download as PDF
+              </Button>
+            </div>
+          </div>
+
           <Section title="Current health summary">
             <p className="text-sm">{result.summary}</p>
           </Section>
@@ -246,7 +288,7 @@ function Analyze() {
             <p className="text-sm text-muted-foreground">{result.potential_complications}</p>
           </Section>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 print:hidden">
             <Button variant="outline" onClick={reset}>New check</Button>
             <div className="flex-1 flex items-center gap-2 text-xs text-muted-foreground justify-end">
               <CheckCircle2 className="size-3.5 text-success" /> Saved to your dashboard

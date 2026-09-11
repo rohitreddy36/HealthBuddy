@@ -1,1 +1,5 @@
 project_id = "qyqnhcdqgjspmxdzbxny"
+
+[auth.third_party.clerk]
+enabled = true
+domain = "sunny-dingo-1460.clerk.accounts.dev"
