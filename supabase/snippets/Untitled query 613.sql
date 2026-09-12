@@ -1,0 +1,1 @@
+select id, email, full_name, cselect column_name, data_type from information_schema.columns where table_schema='public' and table_name='profiles';reated_at from public.profiles order by created_at desc;select column_name, data_type from information_schema.columns where table_schema='public' and table_name='profiles';
