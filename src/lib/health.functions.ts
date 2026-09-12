@@ -296,37 +296,135 @@ Return ONLY valid JSON of this exact shape:
     return { id: row?.id, analysis: output };
   });
 
+// ---- Dashboard insights (care-urgency breakdown, top concerns, weekly trend) ----
+
+type CareUrgency = "monitor_at_home" | "book_appointment_soon" | "seek_urgent_care";
+
+const CARE_URGENCY_VALUES: CareUrgency[] = [
+  "monitor_at_home",
+  "book_appointment_soon",
+  "seek_urgent_care",
+];
+
+function startOfIsoWeek(d: Date) {
+  const day = (d.getDay() + 6) % 7; // Monday = 0 ... Sunday = 6
+  const s = new Date(d);
+  s.setHours(0, 0, 0, 0);
+  s.setDate(s.getDate() - day);
+  return s;
+}
+
+// Aggregates a batch of symptom_analyses rows (created_at + the AI's jsonb
+// `result`) into the shapes the dashboard charts consume. Pure/sync so it's
+// easy to keep independent of how many rows were fetched.
+function buildDashboardInsights(rows: { created_at: string; result: unknown }[]) {
+  const careBreakdown: Record<CareUrgency, number> = {
+    monitor_at_home: 0,
+    book_appointment_soon: 0,
+    seek_urgent_care: 0,
+  };
+  const concernCounts = new Map<string, number>();
+
+  const now = new Date();
+  const thisWeekStart = startOfIsoWeek(now);
+  const weeks = Array.from({ length: 8 }, (_, i) => {
+    const ws = new Date(thisWeekStart);
+    ws.setDate(ws.getDate() - (7 - i) * 7);
+    return {
+      weekStart: ws.toISOString(),
+      label: ws.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
+      count: 0,
+    };
+  });
+
+  for (const row of rows) {
+    const r = (row.result ?? {}) as Record<string, unknown>;
+
+    const urgency = r.when_to_seek_care;
+    if (typeof urgency === "string" && (CARE_URGENCY_VALUES as string[]).includes(urgency)) {
+      careBreakdown[urgency as CareUrgency]++;
+    }
+
+    const concerns = Array.isArray(r.possible_concerns) ? r.possible_concerns : [];
+    for (const c of concerns) {
+      const name = (c as Record<string, unknown> | null)?.name;
+      if (typeof name === "string" && name.trim()) {
+        concernCounts.set(name, (concernCounts.get(name) ?? 0) + 1);
+      }
+    }
+
+    const bucketStart = startOfIsoWeek(new Date(row.created_at)).toISOString();
+    const bucket = weeks.find((w) => w.weekStart === bucketStart);
+    if (bucket) bucket.count++;
+  }
+
+  const topConcerns = Array.from(concernCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5)
+    .map(([name, count]) => ({ name, count }));
+
+  return { careBreakdown, topConcerns, weeklyTrend: weeks };
+}
+
 export const listDashboard = createServerFn({ method: "GET" })
   .middleware([requireAuth])
   .handler(async ({ context }) => {
     const { supabase, userId } = context;
-    const [{ data: analyses }, { data: documents }, { data: profile }, { data: quickQuestions }] =
-      await Promise.all([
-        supabase
-          .from("symptom_analyses")
-          .select("id, initial_symptoms, created_at, result")
-          .eq("user_id", userId)
-          .order("created_at", { ascending: false })
-          .limit(10),
-        supabase
-          .from("documents")
-          .select("id, title, doc_type, created_at")
-          .eq("user_id", userId)
-          .order("created_at", { ascending: false })
-          .limit(10),
-        supabase.from("profiles").select("*").eq("id", userId).maybeSingle(),
-        supabase
-          .from("assistant_messages")
-          .select("id, content, created_at")
-          .eq("user_id", userId)
-          .eq("role", "user")
-          .order("created_at", { ascending: false })
-          .limit(5),
-      ]);
+    const [
+      { data: analyses },
+      { data: analysesForInsights },
+      { count: totalChecks },
+      { data: documents },
+      { count: totalReports },
+      { data: profile },
+      { data: quickQuestions },
+    ] = await Promise.all([
+      supabase
+        .from("symptom_analyses")
+        .select("id, initial_symptoms, created_at, result")
+        .eq("user_id", userId)
+        .order("created_at", { ascending: false })
+        .limit(10),
+      // Wider window purely for the insights aggregation below — capped at
+      // 200 so a long-lived account doesn't ship its whole history to the client.
+      supabase
+        .from("symptom_analyses")
+        .select("created_at, result")
+        .eq("user_id", userId)
+        .order("created_at", { ascending: false })
+        .limit(200),
+      supabase
+        .from("symptom_analyses")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId),
+      supabase
+        .from("documents")
+        .select("id, title, doc_type, created_at")
+        .eq("user_id", userId)
+        .order("created_at", { ascending: false })
+        .limit(10),
+      supabase.from("documents").select("id", { count: "exact", head: true }).eq("user_id", userId),
+      supabase.from("profiles").select("*").eq("id", userId).maybeSingle(),
+      supabase
+        .from("assistant_messages")
+        .select("id, content, created_at")
+        .eq("user_id", userId)
+        .eq("role", "user")
+        .order("created_at", { ascending: false })
+        .limit(5),
+    ]);
+
+    const insights = buildDashboardInsights(analysesForInsights ?? []);
+
     return {
       analyses: analyses ?? [],
       documents: documents ?? [],
       profile: profile ?? null,
       quickQuestions: quickQuestions ?? [],
+      insights: {
+        ...insights,
+        totalChecks: totalChecks ?? (analysesForInsights ?? []).length,
+        totalReports: totalReports ?? 0,
+      },
     };
   });
