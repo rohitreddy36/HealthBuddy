@@ -37,6 +37,10 @@
   --color-success-foreground: var(--success-foreground);
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
+  /* Warning: distinct from destructive -- used for "proceed with caution"
+     states, kept separate from true errors/emergencies (destructive). */
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -50,91 +54,124 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* Brand gradient stops -- generates from-brand-1/via-brand-2/to-brand-3
+     Tailwind utilities. Used deliberately/sparingly: primary CTAs,
+     important headings, active nav state, AI-related highlights, and
+     decorative blobs -- NOT as a default surface treatment. */
+  --color-brand-1: var(--brand-1);
+  --color-brand-2: var(--brand-2);
+  --color-brand-3: var(--brand-3);
+  --color-brand-foreground: var(--brand-foreground);
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.875rem;
-  /* Calm clinical palette: soft white, medical blue, healing green */
-  --background: oklch(0.99 0.005 220);
-  --foreground: oklch(0.22 0.04 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 240);
-  /* Primary: medical blue */
-  --primary: oklch(0.58 0.13 240);
-  --primary-foreground: oklch(0.99 0.005 220);
-  /* Secondary: pale blue tint */
-  --secondary: oklch(0.96 0.02 230);
-  --secondary-foreground: oklch(0.32 0.08 240);
-  --muted: oklch(0.96 0.012 230);
-  --muted-foreground: oklch(0.5 0.03 240);
-  /* Accent: healing green */
-  --accent: oklch(0.93 0.05 160);
-  --accent-foreground: oklch(0.32 0.1 160);
-  --success: oklch(0.65 0.13 160);
-  --success-foreground: oklch(0.99 0.005 160);
-  --info: oklch(0.7 0.1 220);
-  --info-foreground: oklch(0.2 0.05 240);
-  /* Soft amber instead of harsh red for caution */
-  --destructive: oklch(0.62 0.13 40);
-  --destructive-foreground: oklch(0.99 0.005 220);
-  --border: oklch(0.92 0.012 230);
-  --input: oklch(0.94 0.012 230);
-  --ring: oklch(0.58 0.13 240);
-  --chart-1: oklch(0.58 0.13 240);
-  --chart-2: oklch(0.65 0.13 160);
-  --chart-3: oklch(0.7 0.1 220);
-  --chart-4: oklch(0.62 0.13 40);
-  --chart-5: oklch(0.5 0.1 280);
-  --sidebar: oklch(0.98 0.008 230);
-  --sidebar-foreground: oklch(0.22 0.04 240);
-  --sidebar-primary: oklch(0.58 0.13 240);
-  --sidebar-primary-foreground: oklch(0.99 0.005 220);
-  --sidebar-accent: oklch(0.94 0.025 200);
-  --sidebar-accent-foreground: oklch(0.32 0.08 240);
-  --sidebar-border: oklch(0.92 0.012 230);
-  --sidebar-ring: oklch(0.58 0.13 240);
+  --radius: 1rem;
+  /* Professional healthcare/AI palette: blue -> teal -> emerald. Clean,
+     neutral surfaces by default (slate-based background/card/border/
+     secondary/muted); brand color is reserved for primary actions,
+     headings, active nav, AI highlights, and decorative accents so it
+     reads as trustworthy and modern rather than playful. */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  /* Primary: brand-1 blue */
+  --primary: #2563eb;
+  --primary-foreground: #f8fafc;
+  /* Secondary/muted: neutral slate, deliberately NOT tinted with brand hue
+     -- most surfaces should stay clean and neutral. */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  /* Accent: soft teal tint, used for small "AI-related" highlight chips */
+  --accent: #ecfeff;
+  --accent-foreground: #155e75;
+  --success: #10b981;
+  --success-foreground: #0f172a;
+  --info: #0ea5e9;
+  --info-foreground: #0f172a;
+  /* Warning: amber "proceed with caution" -- separate from destructive */
+  --warning: #f59e0b;
+  --warning-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #0f172a;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+  --chart-1: #2563eb;
+  --chart-2: #0891b2;
+  --chart-3: #059669;
+  --chart-4: #f59e0b;
+  --chart-5: #ef4444;
+  --sidebar: #f1f5f9;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #e2e8f0;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #2563eb;
+  /* Brand gradient stops (light): blue -> teal -> emerald */
+  --brand-1: #2563eb;
+  --brand-2: #0891b2;
+  --brand-3: #059669;
+  /* Dark ink text for solid brand-gradient / semantic-color surfaces
+     (buttons, badges). Verified against every stop + semantic color in
+     both themes at >=3.45:1 (most >=4.5:1) -- see the color review notes;
+     a single dark ink reads more consistently across a 3-stop gradient
+     than switching to white for only the darkest stop. */
+  --brand-foreground: #0f172a;
 }
 
 .dark {
-  --background: oklch(0.16 0.02 240);
-  --foreground: oklch(0.96 0.01 220);
-  --card: oklch(0.21 0.03 240);
-  --card-foreground: oklch(0.96 0.01 220);
-  --popover: oklch(0.21 0.03 240);
-  --popover-foreground: oklch(0.96 0.01 220);
-  --primary: oklch(0.72 0.13 230);
-  --primary-foreground: oklch(0.16 0.02 240);
-  --secondary: oklch(0.26 0.03 240);
-  --secondary-foreground: oklch(0.96 0.01 220);
-  --muted: oklch(0.24 0.025 240);
-  --muted-foreground: oklch(0.7 0.03 230);
-  --accent: oklch(0.32 0.08 160);
-  --accent-foreground: oklch(0.92 0.05 160);
-  --success: oklch(0.7 0.13 160);
-  --success-foreground: oklch(0.16 0.02 160);
-  --info: oklch(0.72 0.1 220);
-  --info-foreground: oklch(0.16 0.02 240);
-  --destructive: oklch(0.68 0.14 40);
-  --destructive-foreground: oklch(0.96 0.01 220);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.72 0.13 230);
-  --chart-1: oklch(0.72 0.13 230);
-  --chart-2: oklch(0.7 0.13 160);
-  --chart-3: oklch(0.72 0.1 220);
-  --chart-4: oklch(0.68 0.14 40);
-  --chart-5: oklch(0.6 0.12 280);
-  --sidebar: oklch(0.18 0.025 240);
-  --sidebar-foreground: oklch(0.96 0.01 220);
-  --sidebar-primary: oklch(0.72 0.13 230);
-  --sidebar-primary-foreground: oklch(0.16 0.02 240);
-  --sidebar-accent: oklch(0.26 0.03 240);
-  --sidebar-accent-foreground: oklch(0.96 0.01 220);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.72 0.13 230);
+  --background: #07111f;
+  --foreground: #e8f0f8;
+  --card: #0e1b2e;
+  --card-foreground: #e8f0f8;
+  --popover: #0e1b2e;
+  --popover-foreground: #e8f0f8;
+  --primary: #60a5fa;
+  --primary-foreground: #0f172a;
+  --secondary: #16233a;
+  --secondary-foreground: #e2e8f0;
+  --muted: #16233a;
+  --muted-foreground: #94a3b8;
+  --accent: #0e2a33;
+  --accent-foreground: #67e8f9;
+  --success: #34d399;
+  --success-foreground: #0f172a;
+  --info: #38bdf8;
+  --info-foreground: #0f172a;
+  --warning: #fbbf24;
+  --warning-foreground: #0f172a;
+  --destructive: #f87171;
+  --destructive-foreground: #0f172a;
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: #60a5fa;
+  --chart-1: #60a5fa;
+  --chart-2: #22d3ee;
+  --chart-3: #34d399;
+  --chart-4: #fbbf24;
+  --chart-5: #f87171;
+  --sidebar: #0a1420;
+  --sidebar-foreground: #e8f0f8;
+  --sidebar-primary: #60a5fa;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #16233a;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: #60a5fa;
+  /* Brand gradient stops (dark): same hue families as light, brightened
+     for a subtle neon-tech look against the dark navy background. */
+  --brand-1: #60a5fa;
+  --brand-2: #22d3ee;
+  --brand-3: #34d399;
+  --brand-foreground: #0f172a;
 }
 
 @layer base {
@@ -148,33 +185,136 @@
     font-feature-settings: "cv11", "ss01";
     -webkit-font-smoothing: antialiased;
   }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--brand-1) 35%, transparent);
+    color: var(--foreground);
+  }
 }
 
-/* ---------- "cool" UI utilities ---------- */
+/* ---------- Brand/glass UI utilities -- used sparingly (CTAs, headings,
+   active nav, AI highlights, decorative blobs), not as a default surface
+   treatment ---------- */
 
 @layer utilities {
-  .text-gradient {
+  /* Multi-hue brand gradient text -- the signature "wow" heading treatment
+     used across the landing page, section titles, and stat numbers. */
+  .text-gradient,
+  .gradient-text {
     background-image: linear-gradient(
       120deg,
-      var(--primary) 0%,
-      var(--success) 55%,
-      var(--info) 100%
+      var(--brand-1) 0%,
+      var(--brand-2) 50%,
+      var(--brand-3) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
+  /* Same gradient, but animated -- background-size + position shift for a
+     slow shimmering hue sweep across the text. Use sparingly (hero H1s). */
+  .gradient-text-animated {
+    background-image: linear-gradient(
+      120deg,
+      var(--brand-1) 0%,
+      var(--brand-2) 25%,
+      var(--brand-3) 50%,
+      var(--brand-2) 75%,
+      var(--brand-1) 100%
+    );
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-pan 6s linear infinite;
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(
+      120deg,
+      var(--brand-1) 0%,
+      var(--brand-2) 50%,
+      var(--brand-3) 100%
+    );
+  }
+
   .glass {
-    background-color: color-mix(in oklch, var(--card) 70%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background-color: color-mix(in oklch, var(--card) 68%, transparent);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+  }
+
+  .glass-strong {
+    background-color: color-mix(in oklch, var(--card) 82%, transparent);
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+  }
+
+  .glass-card {
+    background-color: color-mix(in oklch, var(--card) 78%, transparent);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
   }
 
   .glow-ring {
     box-shadow:
-      0 0 0 1px color-mix(in oklch, var(--primary) 20%, transparent),
-      0 8px 30px -8px color-mix(in oklch, var(--primary) 35%, transparent);
+      0 0 0 1px color-mix(in oklch, var(--brand-1) 25%, transparent),
+      0 8px 30px -8px color-mix(in oklch, var(--brand-1) 40%, transparent);
+  }
+
+  .glow-brand {
+    box-shadow:
+      0 0 0 1px color-mix(in oklch, var(--brand-2) 25%, transparent),
+      0 10px 40px -8px color-mix(in oklch, var(--brand-1) 45%, transparent),
+      0 4px 18px -6px color-mix(in oklch, var(--brand-3) 35%, transparent);
+  }
+
+  .glow-brand-lg {
+    box-shadow:
+      0 0 0 1px color-mix(in oklch, var(--brand-2) 30%, transparent),
+      0 20px 60px -12px color-mix(in oklch, var(--brand-1) 55%, transparent),
+      0 8px 30px -6px color-mix(in oklch, var(--brand-3) 40%, transparent);
+  }
+
+  .hover-lift {
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Gradient hairline border via double-background technique -- no extra
+     wrapper element needed. */
+  .gradient-border {
+    position: relative;
+    border: 1px solid transparent;
+    background-image:
+      linear-gradient(var(--color-card), var(--color-card)),
+      linear-gradient(120deg, var(--brand-1), var(--brand-2), var(--brand-3));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      100deg,
+      transparent 30%,
+      color-mix(in oklch, white 50%, transparent) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-slide 2.2s ease-in-out infinite;
   }
 }
 
@@ -198,6 +338,11 @@
 .animate-blob-delayed {
   animation: blob-float 16s ease-in-out infinite;
   animation-delay: -6s;
+}
+
+.animate-blob-slow {
+  animation: blob-float 24s ease-in-out infinite;
+  animation-delay: -10s;
 }
 
 @keyframes fade-up {
@@ -230,6 +375,67 @@
   animation: chat-pop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-gradient-pan {
+  background-size: 200% auto;
+  animation: gradient-pan 6s linear infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--brand-1) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in oklch, var(--brand-1) 0%, transparent);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shimmer-slide {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
 /* thin, unobtrusive scrollbar for the floating chat panel */
 .thin-scrollbar::-webkit-scrollbar {
   width: 6px;
@@ -240,6 +446,22 @@
 }
 .thin-scrollbar::-webkit-scrollbar-track {
   background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-blob-delayed,
+  .animate-blob-slow,
+  .animate-fade-up,
+  .animate-chat-pop,
+  .animate-gradient-pan,
+  .animate-float,
+  .animate-glow-pulse,
+  .animate-spin-slow,
+  .gradient-text-animated,
+  .shimmer::after {
+    animation: none !important;
+  }
 }
 
 @media print {

@@ -2,8 +2,9 @@ import { useChat } from "@ai-sdk/react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import { Loader2, Send } from "lucide-react";
+import { AlertCircle, Loader2, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,19 +17,48 @@ export const Route = createFileRoute("/_authenticated/chat")({
 function Chat() {
   const fetchHistory = useServerFn(getChatHistory);
   const [initial, setInitial] = useState<UIMessage[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    let cancelled = false;
+    setError(null);
     (async () => {
-      const history = await fetchHistory();
-      setInitial(
-        history.map((m) => ({
-          id: m.id,
-          role: m.role as "user" | "assistant",
-          parts: [{ type: "text", text: m.content }],
-        })),
-      );
+      try {
+        const history = await fetchHistory();
+        if (cancelled) return;
+        setInitial(
+          history.map((m) => ({
+            id: m.id,
+            role: m.role as "user" | "assistant",
+            parts: [{ type: "text", text: m.content }],
+          })),
+        );
+      } catch (e) {
+        if (cancelled) return;
+        const message = e instanceof Error ? e.message : "Could not load your chat history";
+        setError(message);
+        toast.error(message);
+      }
     })();
-  }, [fetchHistory]);
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchHistory, attempt]);
+
+  if (error) {
+    return (
+      <div className="grid place-items-center h-[60vh] text-center px-4">
+        <div className="space-y-3">
+          <AlertCircle className="size-6 text-destructive mx-auto" />
+          <p className="text-sm text-muted-foreground max-w-sm">{error}</p>
+          <Button variant="outline" size="sm" onClick={() => setAttempt((a) => a + 1)}>
+            Try again
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   if (!initial) {
     return (
@@ -98,7 +128,7 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
           if (m.role === "user") {
             return (
               <div key={m.id} className="flex justify-end">
-                <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-primary text-primary-foreground px-4 py-2 text-sm whitespace-pre-wrap">
+                <div className="max-w-[80%] rounded-2xl rounded-br-sm bg-gradient-to-br from-brand-1 to-brand-3 text-brand-foreground px-4 py-2 text-sm whitespace-pre-wrap shadow-md shadow-primary/20">
                   {text}
                 </div>
               </div>
@@ -119,7 +149,7 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
 
       <form
         onSubmit={submit}
-        className="border-t bg-card rounded-2xl p-2 flex items-end gap-2 shadow-sm"
+        className="glass-card rounded-3xl p-2 flex items-end gap-2 shadow-xl shadow-black/[0.03]"
       >
         <Textarea
           value={input}

@@ -3,42 +3,10 @@ import { generateText } from "ai";
 import { z } from "zod";
 
 import { requireAuth } from "@/integrations/supabase/auth-middleware";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
-
-export const MODEL = "gemini-3.8-flash";
-
-export function gateway() {
-  const key = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
-  if (!key) throw new Error("Missing GEMINI_API_KEY in environment variables");
-  return createGoogleGenerativeAI({ apiKey: key });
-}
-
-function extractJsonObject(text: string) {
-  const cleaned = text
-    .trim()
-    .replace(/^```(?:json)?\s*/i, "")
-    .replace(/```$/i, "")
-    .trim();
-
-  try {
-    return JSON.parse(cleaned);
-  } catch {
-    const start = cleaned.indexOf("{");
-    const end = cleaned.lastIndexOf("}");
-    if (start === -1 || end === -1 || end <= start) return null;
-
-    try {
-      return JSON.parse(cleaned.slice(start, end + 1));
-    } catch {
-      return null;
-    }
-  }
-}
-
-function parseAiJson<T>(text: string, schema: z.ZodType<T>) {
-  const parsed = schema.safeParse(extractJsonObject(text));
-  return parsed.success ? parsed.data : null;
-}
+import { gateway, MODEL, parseAiJson } from "./ai.server";
+import { extractMedicineMentionLines, normalizeMedicineMention } from "./medicine-normalize";
+import { matchMedicineByName } from "./medicine-service.server";
+import { fallbackTriage } from "./specialty-map";
 
 // Stage 1: get follow-up symptom checklist
 const followUpSchema = z.object({
@@ -64,7 +32,7 @@ function fallbackFollowUps(symptoms: string): z.infer<typeof followUpSchema> {
 
 export const getFollowUpQuestions = createServerFn({ method: "POST" })
   .middleware([requireAuth])
-  .inputValidator((i: unknown) =>
+  .validator((i: unknown) =>
     z
       .object({
         symptoms: z.string().min(2).max(500),
@@ -116,7 +84,22 @@ const analysisSchema = z.object({
   when_to_seek_care: z.enum(["monitor_at_home", "book_appointment_soon", "seek_urgent_care"]),
   care_reason: z.string(),
   potential_complications: z.string(),
+  // Feeds Feature A (Smart Hospital Recommendation) -- never a diagnosis,
+  // just which kind of specialist is relevant. See specialty-map.ts for the
+  // known list and hospital-service.server.ts for how it's used.
+  recommended_specialty: z.string(),
 });
+
+// Always derived server-side from when_to_seek_care rather than trusted
+// from the model, so hospital search / emergency banners can't disagree
+// with the urgency the user already sees in the analysis itself.
+function urgencyFromCareLevel(
+  care: z.infer<typeof analysisSchema>["when_to_seek_care"],
+): "routine" | "soon" | "emergency" {
+  if (care === "seek_urgent_care") return "emergency";
+  if (care === "book_appointment_soon") return "soon";
+  return "routine";
+}
 
 function fallbackAnalysis(symptoms: string): z.infer<typeof analysisSchema> {
   return {
@@ -147,12 +130,17 @@ function fallbackAnalysis(symptoms: string): z.infer<typeof analysisSchema> {
       "Many mild symptoms improve with rest and supportive care, but a clinician can help if symptoms persist, worsen, or concern you.",
     potential_complications:
       "Ignoring worsening symptoms may delay care for dehydration, breathing problems, or an infection that needs treatment.",
+    recommended_specialty: fallbackTriage(symptoms).recommended_specialty,
   };
 }
 
+export type SymptomAnalysisResult = z.infer<typeof analysisSchema> & {
+  urgency: "routine" | "soon" | "emergency";
+};
+
 export const analyzeSymptoms = createServerFn({ method: "POST" })
   .middleware([requireAuth])
-  .inputValidator((i: unknown) =>
+  .validator((i: unknown) =>
     z
       .object({
         symptoms: z.string().min(2),
@@ -169,7 +157,7 @@ export const analyzeSymptoms = createServerFn({ method: "POST" })
     const { text } = await generateText({
       model: provider(MODEL),
       prompt: `Return ONLY valid JSON matching this exact shape:
-{"summary":"string","possible_concerns":[{"name":"string","confidence":"low|moderate|high"}],"self_care":["string"],"diet":{"include":["string"],"avoid":["string"],"sample_meal_plan":{"breakfast":"string","lunch":"string","dinner":"string","snacks":"string"},"hydration":"string"},"exercise":["string"],"when_to_seek_care":"monitor_at_home|book_appointment_soon|seek_urgent_care","care_reason":"string","potential_complications":"string"}
+{"summary":"string","possible_concerns":[{"name":"string","confidence":"low|moderate|high"}],"self_care":["string"],"diet":{"include":["string"],"avoid":["string"],"sample_meal_plan":{"breakfast":"string","lunch":"string","dinner":"string","snacks":"string"},"hydration":"string"},"exercise":["string"],"when_to_seek_care":"monitor_at_home|book_appointment_soon|seek_urgent_care","care_reason":"string","potential_complications":"string","recommended_specialty":"string"}
 
 You are a calm, careful health guidance assistant. Provide non-alarming, supportive guidance ONLY. Do not diagnose.
 
@@ -182,13 +170,17 @@ Duration: ${data.duration ?? "n/a"}
 Severity: ${data.severity ?? "n/a"}
 Additional symptoms confirmed: ${data.selectedFollowUps.join(", ") || "none"}
 
-Return structured guidance. Keep wording reassuring. Confidence should be conservative.`,
+Return structured guidance. Keep wording reassuring. Confidence should be conservative. For "recommended_specialty", name exactly ONE relevant medical specialty (e.g. "General Medicine", "Pulmonology", "Cardiology", "ENT", "Gastroenterology", "Neurology", "Dermatology", "Orthopedics", "Pediatrics", "Gynecology") -- never a diagnosis.`,
     });
-    const output = parseAiJson(text, analysisSchema) ?? fallbackAnalysis(data.symptoms);
+    const parsed = parseAiJson(text, analysisSchema) ?? fallbackAnalysis(data.symptoms);
+    // "urgency" (routine/soon/emergency) is what the hospital finder and the
+    // emergency banner key off of -- always derived here, never taken as-is
+    // from the model (see urgencyFromCareLevel above).
+    const output = { ...parsed, urgency: urgencyFromCareLevel(parsed.when_to_seek_care) };
 
     // Persist
     const { supabase, userId } = context;
-    await supabase.from("symptom_analyses").insert({
+    const { error } = await supabase.from("symptom_analyses").insert({
       user_id: userId,
       initial_symptoms: data.symptoms,
       duration: data.duration,
@@ -199,7 +191,58 @@ Return structured guidance. Keep wording reassuring. Confidence should be conser
       result: output,
     });
 
+    if (error) {
+      console.error("[analyzeSymptoms] Error inserting symptom analysis:", error);
+    }
+
     return output;
+  });
+
+export interface LatestSymptomAnalysis {
+  symptoms: string;
+  duration: string;
+  severity: string;
+  ageGroup: string;
+  medicalHistory: string;
+  selectedFollowUps: string[];
+  result: SymptomAnalysisResult;
+  createdAt: string;
+}
+
+// Lets the Symptom Check page (analyze.tsx) restore the most recently
+// generated report on mount instead of resetting to a blank form -- without
+// this, switching tabs (or any remount) lost the report and the only way
+// back was to re-run the whole AI flow. analyzeSymptoms already persists
+// every result to symptom_analyses (see above); this just reads the latest
+// row back for the current user.
+export const getLatestSymptomAnalysis = createServerFn({ method: "GET" })
+  .middleware([requireAuth])
+  .handler(async ({ context }): Promise<LatestSymptomAnalysis | null> => {
+    const { supabase, userId } = context;
+    const { data } = await supabase
+      .from("symptom_analyses")
+      .select(
+        "initial_symptoms, duration, severity, age_group, medical_history, follow_up_symptoms, result, created_at",
+      )
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (!data || !data.result) return null;
+
+    return {
+      symptoms: data.initial_symptoms,
+      duration: data.duration ?? "",
+      severity: data.severity ?? "mild",
+      ageGroup: data.age_group ?? "adult",
+      medicalHistory: data.medical_history ?? "",
+      selectedFollowUps: Array.isArray(data.follow_up_symptoms)
+        ? (data.follow_up_symptoms as string[])
+        : [],
+      result: data.result as SymptomAnalysisResult,
+      createdAt: data.created_at,
+    };
   });
 
 // Document analyzer
@@ -210,7 +253,26 @@ const documentSchema = z.object({
   values_to_watch: z.array(z.object({ name: z.string(), value: z.string(), note: z.string() })),
   questions_for_doctor: z.array(z.string()),
   suggested_tracking: z.array(z.string()),
+  // Feature C (Report -> Medicine): raw mentions as they appear in the
+  // report (e.g. "Tab. Paracetamol 500 mg"). The model only extracts what
+  // it sees -- normalization + DB verification happens in the handler
+  // below (medicine-normalize.ts / medicine-service.server.ts), so the AI
+  // never gets to invent drug facts.
+  extracted_medicines: z.array(z.string()),
+  // Feeds Feature A / the "Report -> Hospital" link (spec section 17).
+  recommended_specialty: z.string(),
+  urgency: z.enum(["routine", "soon", "emergency"]),
 });
+
+export type VerifiedMedicineMention = {
+  /** The raw text as it appeared in the report. */
+  raw: string;
+  name: string;
+  strength: string | null;
+  /** True only for a confident, exact match against the medicines table. */
+  verified: boolean;
+  medicineId: string | null;
+};
 
 function fallbackDocAnalysis(text: string): z.infer<typeof documentSchema> {
   return {
@@ -226,12 +288,32 @@ function fallbackDocAnalysis(text: string): z.infer<typeof documentSchema> {
       "What should I do next based on these results?",
     ],
     suggested_tracking: ["Symptoms over time", "Medication adherence", "Follow-up appointments"],
+    extracted_medicines: [],
+    recommended_specialty: "General Medicine",
+    urgency: "routine",
   };
+}
+
+// Normalizes + DB-verifies each raw medicine mention the model (or the
+// text-based fallback) found. Never returns a "verified" result without an
+// exact match -- see medicine-service.server.ts.
+async function resolveExtractedMedicines(
+  rawMentions: string[],
+): Promise<VerifiedMedicineMention[]> {
+  const results = await Promise.all(
+    rawMentions.slice(0, 20).map(async (raw): Promise<VerifiedMedicineMention | null> => {
+      const { name, strength } = normalizeMedicineMention(raw);
+      if (!name) return null;
+      const match = await matchMedicineByName(name);
+      return { raw, name, strength, verified: match.verified, medicineId: match.medicineId };
+    }),
+  );
+  return results.filter((m): m is VerifiedMedicineMention => m !== null);
 }
 
 export const analyzeDocument = createServerFn({ method: "POST" })
   .middleware([requireAuth])
-  .inputValidator((i: unknown) =>
+  .validator((i: unknown) =>
     z
       .object({
         title: z.string().min(1).max(200),
@@ -253,7 +335,11 @@ export const analyzeDocument = createServerFn({ method: "POST" })
     const instructions = `You are a medical report / prescription explainer. Read the document (text or image) and produce plain-language guidance for a non-clinical reader. Do not diagnose. Flag values that appear outside common reference ranges, but stay calm and non-alarming.
 
 Return ONLY valid JSON of this exact shape:
-{"document_type":"string","simple_summary":"string","key_findings":[{"term":"string","explanation":"string"}],"values_to_watch":[{"name":"string","value":"string","note":"string"}],"questions_for_doctor":["string"],"suggested_tracking":["string"]}`;
+{"document_type":"string","simple_summary":"string","key_findings":[{"term":"string","explanation":"string"}],"values_to_watch":[{"name":"string","value":"string","note":"string"}],"questions_for_doctor":["string"],"suggested_tracking":["string"],"extracted_medicines":["string"],"recommended_specialty":"string","urgency":"routine|soon|emergency"}
+
+For "extracted_medicines", list each medicine mention exactly as it appears in the document (e.g. "Tab. Paracetamol 500 mg"), including strength if present. Do not normalize, invent, or add medicines that aren't in the document -- an empty array is correct if none are mentioned.
+For "recommended_specialty", name exactly ONE relevant medical specialty (e.g. "General Medicine", "Pulmonology", "Cardiology", "ENT", "Gastroenterology", "Neurology", "Dermatology", "Orthopedics", "Pediatrics", "Gynecology") based on the document's content.
+For "urgency", use "emergency" only if the document itself flags a critical/dangerous value or an urgent recommendation, "soon" if follow-up should happen within a few days, otherwise "routine".`;
 
     const userParts: Array<
       | { type: "text"; text: string }
@@ -278,10 +364,21 @@ Return ONLY valid JSON of this exact shape:
       messages: [{ role: "user", content: userParts as never }],
     });
 
-    const output = parseAiJson(text, documentSchema) ?? fallbackDocAnalysis(data.text ?? "");
+    const parsed = parseAiJson(text, documentSchema) ?? fallbackDocAnalysis(data.text ?? "");
+
+    // Fall back to a light text scan for medicine-looking lines if the model
+    // returned none -- keeps a clearly-formatted prescription from losing
+    // its medicines just because the AI extraction step came back empty.
+    const rawMentions =
+      parsed.extracted_medicines.length > 0
+        ? parsed.extracted_medicines
+        : extractMedicineMentionLines(data.text ?? "");
+    const extractedMedicines = await resolveExtractedMedicines(rawMentions);
+
+    const output = { ...parsed, extracted_medicines: extractedMedicines };
 
     const { supabase, userId } = context;
-    const { data: row } = await supabase
+    const { data: row, error } = await supabase
       .from("documents")
       .insert({
         user_id: userId,
@@ -292,6 +389,11 @@ Return ONLY valid JSON of this exact shape:
       })
       .select()
       .single();
+
+    if (error) {
+      console.error("[analyzeDocument] Error inserting document into Supabase:", error);
+      throw new Error(`Failed to save document: ${error.message}`);
+    }
 
     return { id: row?.id, analysis: output };
   });

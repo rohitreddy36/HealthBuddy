@@ -3,7 +3,7 @@ import { generateText } from "ai";
 import { z } from "zod";
 
 import { requireAuth, optionalAuth } from "@/integrations/supabase/auth-middleware";
-import { gateway, MODEL } from "@/lib/health.functions";
+import { MODEL, gateway } from "@/lib/ai.server";
 
 // Answers anyone (including logged-out visitors on the marketing page), but
 // only *saves* the conversation when the caller happens to be signed in —
@@ -35,7 +35,7 @@ function fallbackReply() {
 
 export const askFloatingAssistant = createServerFn({ method: "POST" })
   .middleware([optionalAuth])
-  .inputValidator((i: unknown) =>
+  .validator((i: unknown) =>
     z
       .object({
         message: z.string().min(1).max(500),

@@ -49,7 +49,10 @@ export function DashboardContent() {
     <div className="space-y-6">
       <div>
         <h1 className="font-display text-2xl font-semibold">
-          Hello{data?.profile?.full_name ? `, ${data.profile.full_name.split(" ")[0]}` : ""}
+          Hello
+          {data?.profile?.full_name && (
+            <span className="text-gradient">, {data.profile.full_name.split(" ")[0]}</span>
+          )}
         </h1>
         <p className="text-muted-foreground text-sm mt-1">
           How are you feeling today? Choose where you'd like to start.
@@ -61,10 +64,10 @@ export function DashboardContent() {
           <Link
             key={c.to}
             to={c.to}
-            className="group relative overflow-hidden rounded-2xl border bg-card p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+            className="group hover-lift glass-card relative overflow-hidden rounded-3xl p-5 shadow-xl shadow-black/[0.03] transition-shadow duration-300 hover:glow-brand"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:to-primary/[0.04] transition-colors duration-300 pointer-events-none" />
-            <div className="size-10 rounded-xl bg-gradient-to-br from-secondary to-accent text-primary grid place-items-center mb-3 transition-transform duration-300 group-hover:scale-110">
+            <div className="size-10 rounded-xl bg-gradient-to-br from-brand-1 via-brand-2 to-brand-3 text-brand-foreground shadow-md shadow-primary/25 grid place-items-center mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
               <c.icon className="size-5" />
             </div>
             <div className="flex items-center justify-between">
@@ -81,7 +84,7 @@ export function DashboardContent() {
       )}
 
       <div className="grid md:grid-cols-3 gap-4">
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-3">Recent symptom checks</h2>
           {isLoading ? (
             <p className="text-sm text-muted-foreground">Loading…</p>
@@ -101,7 +104,7 @@ export function DashboardContent() {
           )}
         </section>
 
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-3">Recent reports</h2>
           {isLoading ? (
             <p className="text-sm text-muted-foreground">Loading…</p>
@@ -121,7 +124,7 @@ export function DashboardContent() {
           )}
         </section>
 
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-3 flex items-center gap-1.5">
             <Sparkles className="size-4 text-primary" /> Recent quick questions
           </h2>
@@ -181,13 +184,13 @@ function HealthInsights({ insights }: { insights: Insights }) {
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-1">Checks by week</h2>
           <p className="text-xs text-muted-foreground mb-4">Last 8 weeks</p>
           <WeeklyTrendChart weeks={insights.weeklyTrend} />
         </section>
 
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-1">Care urgency</h2>
           <p className="text-xs text-muted-foreground mb-4">Across all your checks</p>
           <CareBreakdownChart breakdown={insights.careBreakdown} />
@@ -195,7 +198,7 @@ function HealthInsights({ insights }: { insights: Insights }) {
       </div>
 
       {insights.topConcerns.length > 0 && (
-        <section className="rounded-2xl border bg-card p-5 shadow-sm">
+        <section className="rounded-3xl glass-card p-5 shadow-xl shadow-black/[0.03]">
           <h2 className="font-semibold mb-1">Most reported concerns</h2>
           <p className="text-xs text-muted-foreground mb-4">From your symptom check history</p>
           <TopConcernsChart concerns={insights.topConcerns} />
@@ -219,13 +222,16 @@ function StatTile({
   isText?: boolean;
 }) {
   return (
-    <div className="rounded-2xl border bg-card p-4 shadow-sm">
+    <div className="rounded-2xl glass-card p-4 shadow-lg shadow-black/[0.03]">
       <div className="flex items-center gap-1.5 text-muted-foreground text-xs mb-2">
         <Icon className="size-3.5" />
         <span className="truncate">{label}</span>
       </div>
       <div
-        className={cn("font-display font-semibold truncate", isText ? "text-base" : "text-2xl")}
+        className={cn(
+          "font-display font-semibold truncate",
+          isText ? "text-base" : "text-2xl text-primary",
+        )}
         title={typeof value === "string" ? value : undefined}
       >
         {value}

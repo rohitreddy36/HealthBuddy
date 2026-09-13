@@ -16,10 +16,21 @@ import { Route as AuthenticatedAnalyzeRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDocumentsRouteImport } from './routes/_authenticated/documents'
+import { Route as AuthenticatedExploreRouteRouteImport } from './routes/_authenticated/explore/route'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as SignInSplatRouteImport } from './routes/sign-in.$'
 import { Route as SignUpSplatRouteImport } from './routes/sign-up.$'
+import { Route as AuthenticatedExploreIndexRouteImport } from './routes/_authenticated/explore/index'
+import { Route as AuthenticatedExploreHospitalsRouteImport } from './routes/_authenticated/explore/hospitals'
+import { Route as ApiHospitalsNearbyRouteImport } from './routes/api/hospitals/nearby'
+import { Route as ApiHospitalsRecommendRouteImport } from './routes/api/hospitals/recommend'
+import { Route as ApiMedicinesIndexRouteImport } from './routes/api/medicines/index'
+import { Route as ApiMedicinesIdRouteImport } from './routes/api/medicines/$id'
+import { Route as ApiMedicinesBySymptomRouteImport } from './routes/api/medicines/by-symptom'
+import { Route as ApiMedicinesSearchRouteImport } from './routes/api/medicines/search'
 import { Route as ApiRemindersDailyRouteImport } from './routes/api/reminders/daily'
+import { Route as AuthenticatedExploreMedicinesIdRouteImport } from './routes/_authenticated/explore/medicines/$id'
+import { Route as AuthenticatedExploreSymptomsNameRouteImport } from './routes/_authenticated/explore/symptoms/$name'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -55,6 +66,12 @@ const AuthenticatedDocumentsRoute = AuthenticatedDocumentsRouteImport.update({
   path: '/documents',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedExploreRouteRoute =
+  AuthenticatedExploreRouteRouteImport.update({
+    id: '/explore',
+    path: '/explore',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -70,15 +87,70 @@ const SignUpSplatRoute = SignUpSplatRouteImport.update({
   path: '/sign-up/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedExploreIndexRoute =
+  AuthenticatedExploreIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedExploreRouteRoute,
+  } as any)
+const AuthenticatedExploreHospitalsRoute =
+  AuthenticatedExploreHospitalsRouteImport.update({
+    id: '/hospitals',
+    path: '/hospitals',
+    getParentRoute: () => AuthenticatedExploreRouteRoute,
+  } as any)
+const ApiHospitalsNearbyRoute = ApiHospitalsNearbyRouteImport.update({
+  id: '/api/hospitals/nearby',
+  path: '/api/hospitals/nearby',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiHospitalsRecommendRoute = ApiHospitalsRecommendRouteImport.update({
+  id: '/api/hospitals/recommend',
+  path: '/api/hospitals/recommend',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMedicinesIndexRoute = ApiMedicinesIndexRouteImport.update({
+  id: '/api/medicines/',
+  path: '/api/medicines/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMedicinesIdRoute = ApiMedicinesIdRouteImport.update({
+  id: '/api/medicines/$id',
+  path: '/api/medicines/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMedicinesBySymptomRoute = ApiMedicinesBySymptomRouteImport.update({
+  id: '/api/medicines/by-symptom',
+  path: '/api/medicines/by-symptom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMedicinesSearchRoute = ApiMedicinesSearchRouteImport.update({
+  id: '/api/medicines/search',
+  path: '/api/medicines/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiRemindersDailyRoute = ApiRemindersDailyRouteImport.update({
   id: '/api/reminders/daily',
   path: '/api/reminders/daily',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedExploreMedicinesIdRoute =
+  AuthenticatedExploreMedicinesIdRouteImport.update({
+    id: '/medicines/$id',
+    path: '/medicines/$id',
+    getParentRoute: () => AuthenticatedExploreRouteRoute,
+  } as any)
+const AuthenticatedExploreSymptomsNameRoute =
+  AuthenticatedExploreSymptomsNameRouteImport.update({
+    id: '/symptoms/$name',
+    path: '/symptoms/$name',
+    getParentRoute: () => AuthenticatedExploreRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/explore': typeof AuthenticatedExploreRouteRouteWithChildren
   '/analyze': typeof AuthenticatedAnalyzeRoute
   '/chat': typeof AuthenticatedChatRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -86,7 +158,17 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
+  '/explore/hospitals': typeof AuthenticatedExploreHospitalsRoute
+  '/api/hospitals/nearby': typeof ApiHospitalsNearbyRoute
+  '/api/hospitals/recommend': typeof ApiHospitalsRecommendRoute
+  '/api/medicines/$id': typeof ApiMedicinesIdRoute
+  '/api/medicines/by-symptom': typeof ApiMedicinesBySymptomRoute
+  '/api/medicines/search': typeof ApiMedicinesSearchRoute
   '/api/reminders/daily': typeof ApiRemindersDailyRoute
+  '/explore/': typeof AuthenticatedExploreIndexRoute
+  '/api/medicines/': typeof ApiMedicinesIndexRoute
+  '/explore/medicines/$id': typeof AuthenticatedExploreMedicinesIdRoute
+  '/explore/symptoms/$name': typeof AuthenticatedExploreSymptomsNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -98,13 +180,24 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
+  '/explore/hospitals': typeof AuthenticatedExploreHospitalsRoute
+  '/api/hospitals/nearby': typeof ApiHospitalsNearbyRoute
+  '/api/hospitals/recommend': typeof ApiHospitalsRecommendRoute
+  '/api/medicines/$id': typeof ApiMedicinesIdRoute
+  '/api/medicines/by-symptom': typeof ApiMedicinesBySymptomRoute
+  '/api/medicines/search': typeof ApiMedicinesSearchRoute
   '/api/reminders/daily': typeof ApiRemindersDailyRoute
+  '/explore': typeof AuthenticatedExploreIndexRoute
+  '/api/medicines': typeof ApiMedicinesIndexRoute
+  '/explore/medicines/$id': typeof AuthenticatedExploreMedicinesIdRoute
+  '/explore/symptoms/$name': typeof AuthenticatedExploreSymptomsNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/_authenticated/explore': typeof AuthenticatedExploreRouteRouteWithChildren
   '/_authenticated/analyze': typeof AuthenticatedAnalyzeRoute
   '/_authenticated/chat': typeof AuthenticatedChatRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -112,13 +205,24 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/sign-in/$': typeof SignInSplatRoute
   '/sign-up/$': typeof SignUpSplatRoute
+  '/_authenticated/explore/hospitals': typeof AuthenticatedExploreHospitalsRoute
+  '/api/hospitals/nearby': typeof ApiHospitalsNearbyRoute
+  '/api/hospitals/recommend': typeof ApiHospitalsRecommendRoute
+  '/api/medicines/$id': typeof ApiMedicinesIdRoute
+  '/api/medicines/by-symptom': typeof ApiMedicinesBySymptomRoute
+  '/api/medicines/search': typeof ApiMedicinesSearchRoute
   '/api/reminders/daily': typeof ApiRemindersDailyRoute
+  '/_authenticated/explore/': typeof AuthenticatedExploreIndexRoute
+  '/api/medicines/': typeof ApiMedicinesIndexRoute
+  '/_authenticated/explore/medicines/$id': typeof AuthenticatedExploreMedicinesIdRoute
+  '/_authenticated/explore/symptoms/$name': typeof AuthenticatedExploreSymptomsNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/auth'
+    | '/explore'
     | '/analyze'
     | '/chat'
     | '/dashboard'
@@ -126,7 +230,17 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/sign-in/$'
     | '/sign-up/$'
+    | '/explore/hospitals'
+    | '/api/hospitals/nearby'
+    | '/api/hospitals/recommend'
+    | '/api/medicines/$id'
+    | '/api/medicines/by-symptom'
+    | '/api/medicines/search'
     | '/api/reminders/daily'
+    | '/explore/'
+    | '/api/medicines/'
+    | '/explore/medicines/$id'
+    | '/explore/symptoms/$name'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -138,12 +252,23 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/sign-in/$'
     | '/sign-up/$'
+    | '/explore/hospitals'
+    | '/api/hospitals/nearby'
+    | '/api/hospitals/recommend'
+    | '/api/medicines/$id'
+    | '/api/medicines/by-symptom'
+    | '/api/medicines/search'
     | '/api/reminders/daily'
+    | '/explore'
+    | '/api/medicines'
+    | '/explore/medicines/$id'
+    | '/explore/symptoms/$name'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/_authenticated/explore'
     | '/_authenticated/analyze'
     | '/_authenticated/chat'
     | '/_authenticated/dashboard'
@@ -151,7 +276,17 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/sign-in/$'
     | '/sign-up/$'
+    | '/_authenticated/explore/hospitals'
+    | '/api/hospitals/nearby'
+    | '/api/hospitals/recommend'
+    | '/api/medicines/$id'
+    | '/api/medicines/by-symptom'
+    | '/api/medicines/search'
     | '/api/reminders/daily'
+    | '/_authenticated/explore/'
+    | '/api/medicines/'
+    | '/_authenticated/explore/medicines/$id'
+    | '/_authenticated/explore/symptoms/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -161,7 +296,13 @@ export interface RootRouteChildren {
   ApiChatRoute: typeof ApiChatRoute
   SignInSplatRoute: typeof SignInSplatRoute
   SignUpSplatRoute: typeof SignUpSplatRoute
+  ApiHospitalsNearbyRoute: typeof ApiHospitalsNearbyRoute
+  ApiHospitalsRecommendRoute: typeof ApiHospitalsRecommendRoute
+  ApiMedicinesIdRoute: typeof ApiMedicinesIdRoute
+  ApiMedicinesBySymptomRoute: typeof ApiMedicinesBySymptomRoute
+  ApiMedicinesSearchRoute: typeof ApiMedicinesSearchRoute
   ApiRemindersDailyRoute: typeof ApiRemindersDailyRoute
+  ApiMedicinesIndexRoute: typeof ApiMedicinesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -215,6 +356,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDocumentsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/explore': {
+      id: '/_authenticated/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof AuthenticatedExploreRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -236,6 +384,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignUpSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/explore/': {
+      id: '/_authenticated/explore/'
+      path: '/'
+      fullPath: '/explore/'
+      preLoaderRoute: typeof AuthenticatedExploreIndexRouteImport
+      parentRoute: typeof AuthenticatedExploreRouteRoute
+    }
+    '/_authenticated/explore/hospitals': {
+      id: '/_authenticated/explore/hospitals'
+      path: '/hospitals'
+      fullPath: '/explore/hospitals'
+      preLoaderRoute: typeof AuthenticatedExploreHospitalsRouteImport
+      parentRoute: typeof AuthenticatedExploreRouteRoute
+    }
+    '/api/hospitals/nearby': {
+      id: '/api/hospitals/nearby'
+      path: '/api/hospitals/nearby'
+      fullPath: '/api/hospitals/nearby'
+      preLoaderRoute: typeof ApiHospitalsNearbyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/hospitals/recommend': {
+      id: '/api/hospitals/recommend'
+      path: '/api/hospitals/recommend'
+      fullPath: '/api/hospitals/recommend'
+      preLoaderRoute: typeof ApiHospitalsRecommendRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/medicines/': {
+      id: '/api/medicines/'
+      path: '/api/medicines'
+      fullPath: '/api/medicines/'
+      preLoaderRoute: typeof ApiMedicinesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/medicines/$id': {
+      id: '/api/medicines/$id'
+      path: '/api/medicines/$id'
+      fullPath: '/api/medicines/$id'
+      preLoaderRoute: typeof ApiMedicinesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/medicines/by-symptom': {
+      id: '/api/medicines/by-symptom'
+      path: '/api/medicines/by-symptom'
+      fullPath: '/api/medicines/by-symptom'
+      preLoaderRoute: typeof ApiMedicinesBySymptomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/medicines/search': {
+      id: '/api/medicines/search'
+      path: '/api/medicines/search'
+      fullPath: '/api/medicines/search'
+      preLoaderRoute: typeof ApiMedicinesSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/reminders/daily': {
       id: '/api/reminders/daily'
       path: '/api/reminders/daily'
@@ -243,10 +447,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiRemindersDailyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/explore/medicines/$id': {
+      id: '/_authenticated/explore/medicines/$id'
+      path: '/medicines/$id'
+      fullPath: '/explore/medicines/$id'
+      preLoaderRoute: typeof AuthenticatedExploreMedicinesIdRouteImport
+      parentRoute: typeof AuthenticatedExploreRouteRoute
+    }
+    '/_authenticated/explore/symptoms/$name': {
+      id: '/_authenticated/explore/symptoms/$name'
+      path: '/symptoms/$name'
+      fullPath: '/explore/symptoms/$name'
+      preLoaderRoute: typeof AuthenticatedExploreSymptomsNameRouteImport
+      parentRoute: typeof AuthenticatedExploreRouteRoute
+    }
   }
 }
 
+interface AuthenticatedExploreRouteRouteChildren {
+  AuthenticatedExploreHospitalsRoute: typeof AuthenticatedExploreHospitalsRoute
+  AuthenticatedExploreIndexRoute: typeof AuthenticatedExploreIndexRoute
+  AuthenticatedExploreMedicinesIdRoute: typeof AuthenticatedExploreMedicinesIdRoute
+  AuthenticatedExploreSymptomsNameRoute: typeof AuthenticatedExploreSymptomsNameRoute
+}
+
+const AuthenticatedExploreRouteRouteChildren: AuthenticatedExploreRouteRouteChildren =
+  {
+    AuthenticatedExploreHospitalsRoute: AuthenticatedExploreHospitalsRoute,
+    AuthenticatedExploreIndexRoute: AuthenticatedExploreIndexRoute,
+    AuthenticatedExploreMedicinesIdRoute: AuthenticatedExploreMedicinesIdRoute,
+    AuthenticatedExploreSymptomsNameRoute:
+      AuthenticatedExploreSymptomsNameRoute,
+  }
+
+const AuthenticatedExploreRouteRouteWithChildren =
+  AuthenticatedExploreRouteRoute._addFileChildren(
+    AuthenticatedExploreRouteRouteChildren,
+  )
+
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedExploreRouteRoute: typeof AuthenticatedExploreRouteRouteWithChildren
   AuthenticatedAnalyzeRoute: typeof AuthenticatedAnalyzeRoute
   AuthenticatedChatRoute: typeof AuthenticatedChatRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
@@ -254,6 +494,7 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedExploreRouteRoute: AuthenticatedExploreRouteRouteWithChildren,
   AuthenticatedAnalyzeRoute: AuthenticatedAnalyzeRoute,
   AuthenticatedChatRoute: AuthenticatedChatRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
@@ -270,7 +511,13 @@ const rootRouteChildren: RootRouteChildren = {
   ApiChatRoute: ApiChatRoute,
   SignInSplatRoute: SignInSplatRoute,
   SignUpSplatRoute: SignUpSplatRoute,
+  ApiHospitalsNearbyRoute: ApiHospitalsNearbyRoute,
+  ApiHospitalsRecommendRoute: ApiHospitalsRecommendRoute,
+  ApiMedicinesIdRoute: ApiMedicinesIdRoute,
+  ApiMedicinesBySymptomRoute: ApiMedicinesBySymptomRoute,
+  ApiMedicinesSearchRoute: ApiMedicinesSearchRoute,
   ApiRemindersDailyRoute: ApiRemindersDailyRoute,
+  ApiMedicinesIndexRoute: ApiMedicinesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

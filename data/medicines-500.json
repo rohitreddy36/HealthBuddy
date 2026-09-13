@@ -1,0 +1,5987 @@
+[
+  {
+    "id": 1,
+    "name": "Paracetamol",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 2,
+    "name": "Aspirin",
+    "generic_name": "Aspirin",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 3,
+    "name": "Mefenamic Acid",
+    "generic_name": "Mefenamic Acid",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 4,
+    "name": "Nimesulide",
+    "generic_name": "Nimesulide",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 5,
+    "name": "Ibuprofen",
+    "generic_name": "Ibuprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 6,
+    "name": "Naproxen",
+    "generic_name": "Naproxen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 7,
+    "name": "Diclofenac",
+    "generic_name": "Diclofenac",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 8,
+    "name": "Aceclofenac",
+    "generic_name": "Aceclofenac",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 9,
+    "name": "Flurbiprofen",
+    "generic_name": "Flurbiprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 10,
+    "name": "Dexketoprofen",
+    "generic_name": "Dexketoprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 11,
+    "name": "Piroxicam",
+    "generic_name": "Piroxicam",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 12,
+    "name": "Etoricoxib",
+    "generic_name": "Etoricoxib",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 13,
+    "name": "Celecoxib",
+    "generic_name": "Celecoxib",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 14,
+    "name": "Meloxicam",
+    "generic_name": "Meloxicam",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 15,
+    "name": "Ketorolac",
+    "generic_name": "Ketorolac",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "inflammation",
+      "post_surgical_pain"
+    ],
+    "category": "nsaid_prescription",
+    "prescription_required": true
+  },
+  {
+    "id": 16,
+    "name": "Indomethacin",
+    "generic_name": "Indomethacin",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "inflammation",
+      "post_surgical_pain"
+    ],
+    "category": "nsaid_prescription",
+    "prescription_required": true
+  },
+  {
+    "id": 17,
+    "name": "Tramadol",
+    "generic_name": "Tramadol",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 18,
+    "name": "Codeine",
+    "generic_name": "Codeine",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 19,
+    "name": "Morphine",
+    "generic_name": "Morphine",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 20,
+    "name": "Fentanyl",
+    "generic_name": "Fentanyl",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 21,
+    "name": "Amoxicillin",
+    "generic_name": "Amoxicillin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 22,
+    "name": "Ampicillin",
+    "generic_name": "Ampicillin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 23,
+    "name": "Penicillin V",
+    "generic_name": "Penicillin V",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 24,
+    "name": "Piperacillin",
+    "generic_name": "Piperacillin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 25,
+    "name": "Flucloxacillin",
+    "generic_name": "Flucloxacillin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 26,
+    "name": "Amoxicillin-Clavulanate",
+    "generic_name": "Amoxicillin-Clavulanate",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 27,
+    "name": "Ampicillin-Sulbactam",
+    "generic_name": "Ampicillin-Sulbactam",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 28,
+    "name": "Cephalexin",
+    "generic_name": "Cephalexin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 29,
+    "name": "Cefuroxime",
+    "generic_name": "Cefuroxime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 30,
+    "name": "Ceftriaxone",
+    "generic_name": "Ceftriaxone",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 31,
+    "name": "Cefixime",
+    "generic_name": "Cefixime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 32,
+    "name": "Cefpodoxime",
+    "generic_name": "Cefpodoxime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 33,
+    "name": "Cefdinir",
+    "generic_name": "Cefdinir",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 34,
+    "name": "Cefaclor",
+    "generic_name": "Cefaclor",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 35,
+    "name": "Ceftazidime",
+    "generic_name": "Ceftazidime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 36,
+    "name": "Azithromycin",
+    "generic_name": "Azithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 37,
+    "name": "Clarithromycin",
+    "generic_name": "Clarithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 38,
+    "name": "Erythromycin",
+    "generic_name": "Erythromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 39,
+    "name": "Roxithromycin",
+    "generic_name": "Roxithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 40,
+    "name": "Ciprofloxacin",
+    "generic_name": "Ciprofloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 41,
+    "name": "Levofloxacin",
+    "generic_name": "Levofloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 42,
+    "name": "Moxifloxacin",
+    "generic_name": "Moxifloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 43,
+    "name": "Ofloxacin",
+    "generic_name": "Ofloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 44,
+    "name": "Norfloxacin",
+    "generic_name": "Norfloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 45,
+    "name": "Doxycycline",
+    "generic_name": "Doxycycline",
+    "common_uses": [
+      "bacterial_infection",
+      "acne",
+      "respiratory_infection"
+    ],
+    "category": "tetracycline_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 46,
+    "name": "Minocycline",
+    "generic_name": "Minocycline",
+    "common_uses": [
+      "bacterial_infection",
+      "acne",
+      "respiratory_infection"
+    ],
+    "category": "tetracycline_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 47,
+    "name": "Tetracycline",
+    "generic_name": "Tetracycline",
+    "common_uses": [
+      "bacterial_infection",
+      "acne",
+      "respiratory_infection"
+    ],
+    "category": "tetracycline_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 48,
+    "name": "Gentamicin",
+    "generic_name": "Gentamicin",
+    "common_uses": [
+      "severe_bacterial_infection"
+    ],
+    "category": "aminoglycoside_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 49,
+    "name": "Amikacin",
+    "generic_name": "Amikacin",
+    "common_uses": [
+      "severe_bacterial_infection"
+    ],
+    "category": "aminoglycoside_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 50,
+    "name": "Tobramycin",
+    "generic_name": "Tobramycin",
+    "common_uses": [
+      "severe_bacterial_infection"
+    ],
+    "category": "aminoglycoside_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 51,
+    "name": "Metronidazole",
+    "generic_name": "Metronidazole",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 52,
+    "name": "Clindamycin",
+    "generic_name": "Clindamycin",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 53,
+    "name": "Vancomycin",
+    "generic_name": "Vancomycin",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 54,
+    "name": "Linezolid",
+    "generic_name": "Linezolid",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 55,
+    "name": "Nitrofurantoin",
+    "generic_name": "Nitrofurantoin",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 56,
+    "name": "Co-trimoxazole",
+    "generic_name": "Co-trimoxazole",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 57,
+    "name": "Chloramphenicol",
+    "generic_name": "Chloramphenicol",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 58,
+    "name": "Rifampicin",
+    "generic_name": "Rifampicin",
+    "common_uses": [
+      "tuberculosis"
+    ],
+    "category": "antitubercular",
+    "prescription_required": true
+  },
+  {
+    "id": 59,
+    "name": "Isoniazid",
+    "generic_name": "Isoniazid",
+    "common_uses": [
+      "tuberculosis"
+    ],
+    "category": "antitubercular",
+    "prescription_required": true
+  },
+  {
+    "id": 60,
+    "name": "Ethambutol",
+    "generic_name": "Ethambutol",
+    "common_uses": [
+      "tuberculosis"
+    ],
+    "category": "antitubercular",
+    "prescription_required": true
+  },
+  {
+    "id": 61,
+    "name": "Pyrazinamide",
+    "generic_name": "Pyrazinamide",
+    "common_uses": [
+      "tuberculosis"
+    ],
+    "category": "antitubercular",
+    "prescription_required": true
+  },
+  {
+    "id": 62,
+    "name": "Fluconazole",
+    "generic_name": "Fluconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 63,
+    "name": "Itraconazole",
+    "generic_name": "Itraconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 64,
+    "name": "Ketoconazole",
+    "generic_name": "Ketoconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 65,
+    "name": "Terbinafine",
+    "generic_name": "Terbinafine",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 66,
+    "name": "Clotrimazole",
+    "generic_name": "Clotrimazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 67,
+    "name": "Miconazole",
+    "generic_name": "Miconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 68,
+    "name": "Nystatin",
+    "generic_name": "Nystatin",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 69,
+    "name": "Griseofulvin",
+    "generic_name": "Griseofulvin",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 70,
+    "name": "Voriconazole",
+    "generic_name": "Voriconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 71,
+    "name": "Amphotericin B",
+    "generic_name": "Amphotericin B",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 72,
+    "name": "Acyclovir",
+    "generic_name": "Acyclovir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 73,
+    "name": "Valacyclovir",
+    "generic_name": "Valacyclovir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 74,
+    "name": "Oseltamivir",
+    "generic_name": "Oseltamivir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 75,
+    "name": "Ribavirin",
+    "generic_name": "Ribavirin",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 76,
+    "name": "Lamivudine",
+    "generic_name": "Lamivudine",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 77,
+    "name": "Zidovudine",
+    "generic_name": "Zidovudine",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 78,
+    "name": "Tenofovir",
+    "generic_name": "Tenofovir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 79,
+    "name": "Efavirenz",
+    "generic_name": "Efavirenz",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 80,
+    "name": "Remdesivir",
+    "generic_name": "Remdesivir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 81,
+    "name": "Favipiravir",
+    "generic_name": "Favipiravir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 82,
+    "name": "Cetirizine",
+    "generic_name": "Cetirizine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 83,
+    "name": "Levocetirizine",
+    "generic_name": "Levocetirizine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 84,
+    "name": "Loratadine",
+    "generic_name": "Loratadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 85,
+    "name": "Desloratadine",
+    "generic_name": "Desloratadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 86,
+    "name": "Fexofenadine",
+    "generic_name": "Fexofenadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 87,
+    "name": "Chlorpheniramine",
+    "generic_name": "Chlorpheniramine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 88,
+    "name": "Diphenhydramine",
+    "generic_name": "Diphenhydramine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 89,
+    "name": "Hydroxyzine",
+    "generic_name": "Hydroxyzine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 90,
+    "name": "Promethazine",
+    "generic_name": "Promethazine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 91,
+    "name": "Bilastine",
+    "generic_name": "Bilastine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 92,
+    "name": "Dextromethorphan",
+    "generic_name": "Dextromethorphan",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 93,
+    "name": "Guaifenesin",
+    "generic_name": "Guaifenesin",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 94,
+    "name": "Ambroxol",
+    "generic_name": "Ambroxol",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 95,
+    "name": "Bromhexine",
+    "generic_name": "Bromhexine",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 96,
+    "name": "Phenylephrine",
+    "generic_name": "Phenylephrine",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 97,
+    "name": "Pseudoephedrine",
+    "generic_name": "Pseudoephedrine",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 98,
+    "name": "Salbutamol",
+    "generic_name": "Salbutamol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 99,
+    "name": "Levosalbutamol",
+    "generic_name": "Levosalbutamol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 100,
+    "name": "Terbutaline",
+    "generic_name": "Terbutaline",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 101,
+    "name": "Formoterol",
+    "generic_name": "Formoterol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 102,
+    "name": "Salmeterol",
+    "generic_name": "Salmeterol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 103,
+    "name": "Ipratropium Bromide",
+    "generic_name": "Ipratropium Bromide",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 104,
+    "name": "Tiotropium",
+    "generic_name": "Tiotropium",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 105,
+    "name": "Theophylline",
+    "generic_name": "Theophylline",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 106,
+    "name": "Montelukast",
+    "generic_name": "Montelukast",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 107,
+    "name": "Budesonide",
+    "generic_name": "Budesonide",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 108,
+    "name": "Fluticasone",
+    "generic_name": "Fluticasone",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 109,
+    "name": "Beclomethasone",
+    "generic_name": "Beclomethasone",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 110,
+    "name": "Omeprazole",
+    "generic_name": "Omeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 111,
+    "name": "Pantoprazole",
+    "generic_name": "Pantoprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 112,
+    "name": "Esomeprazole",
+    "generic_name": "Esomeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 113,
+    "name": "Rabeprazole",
+    "generic_name": "Rabeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 114,
+    "name": "Lansoprazole",
+    "generic_name": "Lansoprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 115,
+    "name": "Ranitidine",
+    "generic_name": "Ranitidine",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 116,
+    "name": "Famotidine",
+    "generic_name": "Famotidine",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 117,
+    "name": "Magnesium Hydroxide",
+    "generic_name": "Magnesium Hydroxide",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 118,
+    "name": "Simethicone",
+    "generic_name": "Simethicone",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 119,
+    "name": "Domperidone",
+    "generic_name": "Domperidone",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 120,
+    "name": "Ondansetron",
+    "generic_name": "Ondansetron",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 121,
+    "name": "Metoclopramide",
+    "generic_name": "Metoclopramide",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 122,
+    "name": "Dicyclomine",
+    "generic_name": "Dicyclomine",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 123,
+    "name": "Loperamide",
+    "generic_name": "Loperamide",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 124,
+    "name": "Oral Rehydration Salts",
+    "generic_name": "Oral Rehydration Salts",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 125,
+    "name": "Lactulose",
+    "generic_name": "Lactulose",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 126,
+    "name": "Bisacodyl",
+    "generic_name": "Bisacodyl",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 127,
+    "name": "Sucralfate",
+    "generic_name": "Sucralfate",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 128,
+    "name": "Misoprostol",
+    "generic_name": "Misoprostol",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 129,
+    "name": "Mesalamine",
+    "generic_name": "Mesalamine",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 130,
+    "name": "Amlodipine",
+    "generic_name": "Amlodipine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "angina"
+    ],
+    "category": "antihypertensive_ccb",
+    "prescription_required": true
+  },
+  {
+    "id": 131,
+    "name": "Nifedipine",
+    "generic_name": "Nifedipine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "angina"
+    ],
+    "category": "antihypertensive_ccb",
+    "prescription_required": true
+  },
+  {
+    "id": 132,
+    "name": "Losartan",
+    "generic_name": "Losartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 133,
+    "name": "Telmisartan",
+    "generic_name": "Telmisartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 134,
+    "name": "Valsartan",
+    "generic_name": "Valsartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 135,
+    "name": "Olmesartan",
+    "generic_name": "Olmesartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 136,
+    "name": "Ramipril",
+    "generic_name": "Ramipril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 137,
+    "name": "Enalapril",
+    "generic_name": "Enalapril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 138,
+    "name": "Lisinopril",
+    "generic_name": "Lisinopril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 139,
+    "name": "Atenolol",
+    "generic_name": "Atenolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 140,
+    "name": "Metoprolol",
+    "generic_name": "Metoprolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 141,
+    "name": "Bisoprolol",
+    "generic_name": "Bisoprolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 142,
+    "name": "Carvedilol",
+    "generic_name": "Carvedilol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 143,
+    "name": "Propranolol",
+    "generic_name": "Propranolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 144,
+    "name": "Hydrochlorothiazide",
+    "generic_name": "Hydrochlorothiazide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 145,
+    "name": "Furosemide",
+    "generic_name": "Furosemide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 146,
+    "name": "Spironolactone",
+    "generic_name": "Spironolactone",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 147,
+    "name": "Chlorthalidone",
+    "generic_name": "Chlorthalidone",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 148,
+    "name": "Mannitol",
+    "generic_name": "Mannitol",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 149,
+    "name": "Acetazolamide",
+    "generic_name": "Acetazolamide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 150,
+    "name": "Clonidine",
+    "generic_name": "Clonidine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 151,
+    "name": "Methyldopa",
+    "generic_name": "Methyldopa",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 152,
+    "name": "Prazosin",
+    "generic_name": "Prazosin",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 153,
+    "name": "Doxazosin",
+    "generic_name": "Doxazosin",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 154,
+    "name": "Atorvastatin",
+    "generic_name": "Atorvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 155,
+    "name": "Rosuvastatin",
+    "generic_name": "Rosuvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 156,
+    "name": "Simvastatin",
+    "generic_name": "Simvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 157,
+    "name": "Pravastatin",
+    "generic_name": "Pravastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 158,
+    "name": "Fenofibrate",
+    "generic_name": "Fenofibrate",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 159,
+    "name": "Gemfibrozil",
+    "generic_name": "Gemfibrozil",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 160,
+    "name": "Ezetimibe",
+    "generic_name": "Ezetimibe",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 161,
+    "name": "Metformin",
+    "generic_name": "Metformin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 162,
+    "name": "Glimepiride",
+    "generic_name": "Glimepiride",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 163,
+    "name": "Glipizide",
+    "generic_name": "Glipizide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 164,
+    "name": "Gliclazide",
+    "generic_name": "Gliclazide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 165,
+    "name": "Sitagliptin",
+    "generic_name": "Sitagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 166,
+    "name": "Vildagliptin",
+    "generic_name": "Vildagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 167,
+    "name": "Linagliptin",
+    "generic_name": "Linagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 168,
+    "name": "Pioglitazone",
+    "generic_name": "Pioglitazone",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 169,
+    "name": "Empagliflozin",
+    "generic_name": "Empagliflozin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 170,
+    "name": "Dapagliflozin",
+    "generic_name": "Dapagliflozin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 171,
+    "name": "Acarbose",
+    "generic_name": "Acarbose",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 172,
+    "name": "Repaglinide",
+    "generic_name": "Repaglinide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 173,
+    "name": "Insulin Glargine",
+    "generic_name": "Insulin Glargine",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 174,
+    "name": "Insulin Aspart",
+    "generic_name": "Insulin Aspart",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 175,
+    "name": "Insulin Regular",
+    "generic_name": "Insulin Regular",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 176,
+    "name": "Warfarin",
+    "generic_name": "Warfarin",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 177,
+    "name": "Heparin",
+    "generic_name": "Heparin",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 178,
+    "name": "Enoxaparin",
+    "generic_name": "Enoxaparin",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 179,
+    "name": "Clopidogrel",
+    "generic_name": "Clopidogrel",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 180,
+    "name": "Rivaroxaban",
+    "generic_name": "Rivaroxaban",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 181,
+    "name": "Apixaban",
+    "generic_name": "Apixaban",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 182,
+    "name": "Dabigatran",
+    "generic_name": "Dabigatran",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 183,
+    "name": "Ticagrelor",
+    "generic_name": "Ticagrelor",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 184,
+    "name": "Levothyroxine",
+    "generic_name": "Levothyroxine",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 185,
+    "name": "Methimazole",
+    "generic_name": "Methimazole",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 186,
+    "name": "Carbimazole",
+    "generic_name": "Carbimazole",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 187,
+    "name": "Propylthiouracil",
+    "generic_name": "Propylthiouracil",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 188,
+    "name": "Prednisolone",
+    "generic_name": "Prednisolone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 189,
+    "name": "Prednisone",
+    "generic_name": "Prednisone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 190,
+    "name": "Dexamethasone",
+    "generic_name": "Dexamethasone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 191,
+    "name": "Hydrocortisone",
+    "generic_name": "Hydrocortisone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 192,
+    "name": "Methylprednisolone",
+    "generic_name": "Methylprednisolone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 193,
+    "name": "Betamethasone",
+    "generic_name": "Betamethasone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 194,
+    "name": "Sertraline",
+    "generic_name": "Sertraline",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 195,
+    "name": "Fluoxetine",
+    "generic_name": "Fluoxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 196,
+    "name": "Escitalopram",
+    "generic_name": "Escitalopram",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 197,
+    "name": "Paroxetine",
+    "generic_name": "Paroxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 198,
+    "name": "Citalopram",
+    "generic_name": "Citalopram",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 199,
+    "name": "Venlafaxine",
+    "generic_name": "Venlafaxine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 200,
+    "name": "Duloxetine",
+    "generic_name": "Duloxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 201,
+    "name": "Amitriptyline",
+    "generic_name": "Amitriptyline",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 202,
+    "name": "Bupropion",
+    "generic_name": "Bupropion",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 203,
+    "name": "Mirtazapine",
+    "generic_name": "Mirtazapine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 204,
+    "name": "Alprazolam",
+    "generic_name": "Alprazolam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 205,
+    "name": "Diazepam",
+    "generic_name": "Diazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 206,
+    "name": "Lorazepam",
+    "generic_name": "Lorazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 207,
+    "name": "Clonazepam",
+    "generic_name": "Clonazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 208,
+    "name": "Zolpidem",
+    "generic_name": "Zolpidem",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 209,
+    "name": "Buspirone",
+    "generic_name": "Buspirone",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 210,
+    "name": "Risperidone",
+    "generic_name": "Risperidone",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 211,
+    "name": "Olanzapine",
+    "generic_name": "Olanzapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 212,
+    "name": "Quetiapine",
+    "generic_name": "Quetiapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 213,
+    "name": "Aripiprazole",
+    "generic_name": "Aripiprazole",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 214,
+    "name": "Haloperidol",
+    "generic_name": "Haloperidol",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 215,
+    "name": "Clozapine",
+    "generic_name": "Clozapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 216,
+    "name": "Phenytoin",
+    "generic_name": "Phenytoin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 217,
+    "name": "Sodium Valproate",
+    "generic_name": "Sodium Valproate",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 218,
+    "name": "Carbamazepine",
+    "generic_name": "Carbamazepine",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 219,
+    "name": "Levetiracetam",
+    "generic_name": "Levetiracetam",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 220,
+    "name": "Lamotrigine",
+    "generic_name": "Lamotrigine",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 221,
+    "name": "Gabapentin",
+    "generic_name": "Gabapentin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 222,
+    "name": "Pregabalin",
+    "generic_name": "Pregabalin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 223,
+    "name": "Topiramate",
+    "generic_name": "Topiramate",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 224,
+    "name": "Phenobarbital",
+    "generic_name": "Phenobarbital",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 225,
+    "name": "Baclofen",
+    "generic_name": "Baclofen",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 226,
+    "name": "Tizanidine",
+    "generic_name": "Tizanidine",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 227,
+    "name": "Cyclobenzaprine",
+    "generic_name": "Cyclobenzaprine",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 228,
+    "name": "Chlorzoxazone",
+    "generic_name": "Chlorzoxazone",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 229,
+    "name": "Methocarbamol",
+    "generic_name": "Methocarbamol",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 230,
+    "name": "Vitamin C",
+    "generic_name": "Vitamin C",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 231,
+    "name": "Vitamin D3",
+    "generic_name": "Vitamin D3",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 232,
+    "name": "Vitamin B12",
+    "generic_name": "Vitamin B12",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 233,
+    "name": "Folic Acid",
+    "generic_name": "Folic Acid",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 234,
+    "name": "Vitamin B Complex",
+    "generic_name": "Vitamin B Complex",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 235,
+    "name": "Calcium Carbonate",
+    "generic_name": "Calcium Carbonate",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 236,
+    "name": "Ferrous Sulfate",
+    "generic_name": "Ferrous Sulfate",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 237,
+    "name": "Zinc Sulfate",
+    "generic_name": "Zinc Sulfate",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 238,
+    "name": "Multivitamin",
+    "generic_name": "Multivitamin",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 239,
+    "name": "Vitamin E",
+    "generic_name": "Vitamin E",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 240,
+    "name": "Vitamin A",
+    "generic_name": "Vitamin A",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 241,
+    "name": "Biotin",
+    "generic_name": "Biotin",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 242,
+    "name": "Omega-3 Fish Oil",
+    "generic_name": "Omega-3 Fish Oil",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 243,
+    "name": "Magnesium Oxide",
+    "generic_name": "Magnesium Oxide",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 244,
+    "name": "Timolol Eye Drops",
+    "generic_name": "Timolol Eye Drops",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 245,
+    "name": "Latanoprost",
+    "generic_name": "Latanoprost",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 246,
+    "name": "Chloramphenicol Eye Drops",
+    "generic_name": "Chloramphenicol Eye Drops",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 247,
+    "name": "Ciprofloxacin Eye Drops",
+    "generic_name": "Ciprofloxacin Eye Drops",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 248,
+    "name": "Sodium Cromoglycate Eye Drops",
+    "generic_name": "Sodium Cromoglycate Eye Drops",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 249,
+    "name": "Artificial Tears",
+    "generic_name": "Artificial Tears",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 250,
+    "name": "Clobetasol",
+    "generic_name": "Clobetasol",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 251,
+    "name": "Betamethasone Cream",
+    "generic_name": "Betamethasone Cream",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 252,
+    "name": "Mupirocin",
+    "generic_name": "Mupirocin",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 253,
+    "name": "Fusidic Acid",
+    "generic_name": "Fusidic Acid",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 254,
+    "name": "Permethrin",
+    "generic_name": "Permethrin",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 255,
+    "name": "Benzoyl Peroxide",
+    "generic_name": "Benzoyl Peroxide",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 256,
+    "name": "Adapalene",
+    "generic_name": "Adapalene",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 257,
+    "name": "Tretinoin",
+    "generic_name": "Tretinoin",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 258,
+    "name": "Calamine Lotion",
+    "generic_name": "Calamine Lotion",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 259,
+    "name": "Silver Sulfadiazine",
+    "generic_name": "Silver Sulfadiazine",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 260,
+    "name": "Salicylic Acid",
+    "generic_name": "Salicylic Acid",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 261,
+    "name": "Xylometazoline Nasal Drops",
+    "generic_name": "Xylometazoline Nasal Drops",
+    "common_uses": [
+      "nasal_congestion",
+      "sinusitis",
+      "allergic_rhinitis"
+    ],
+    "category": "ent_nasal",
+    "prescription_required": false
+  },
+  {
+    "id": 262,
+    "name": "Oxymetazoline",
+    "generic_name": "Oxymetazoline",
+    "common_uses": [
+      "nasal_congestion",
+      "sinusitis",
+      "allergic_rhinitis"
+    ],
+    "category": "ent_nasal",
+    "prescription_required": false
+  },
+  {
+    "id": 263,
+    "name": "Beclomethasone Nasal Spray",
+    "generic_name": "Beclomethasone Nasal Spray",
+    "common_uses": [
+      "nasal_congestion",
+      "sinusitis",
+      "allergic_rhinitis"
+    ],
+    "category": "ent_nasal",
+    "prescription_required": false
+  },
+  {
+    "id": 264,
+    "name": "Fluticasone Nasal Spray",
+    "generic_name": "Fluticasone Nasal Spray",
+    "common_uses": [
+      "nasal_congestion",
+      "sinusitis",
+      "allergic_rhinitis"
+    ],
+    "category": "ent_nasal",
+    "prescription_required": false
+  },
+  {
+    "id": 265,
+    "name": "Ethinylestradiol-Levonorgestrel",
+    "generic_name": "Ethinylestradiol-Levonorgestrel",
+    "common_uses": [
+      "contraception",
+      "hormone_therapy",
+      "menstrual_disorder",
+      "infertility"
+    ],
+    "category": "hormonal_reproductive",
+    "prescription_required": true
+  },
+  {
+    "id": 266,
+    "name": "Progesterone",
+    "generic_name": "Progesterone",
+    "common_uses": [
+      "contraception",
+      "hormone_therapy",
+      "menstrual_disorder",
+      "infertility"
+    ],
+    "category": "hormonal_reproductive",
+    "prescription_required": true
+  },
+  {
+    "id": 267,
+    "name": "Medroxyprogesterone",
+    "generic_name": "Medroxyprogesterone",
+    "common_uses": [
+      "contraception",
+      "hormone_therapy",
+      "menstrual_disorder",
+      "infertility"
+    ],
+    "category": "hormonal_reproductive",
+    "prescription_required": true
+  },
+  {
+    "id": 268,
+    "name": "Clomiphene",
+    "generic_name": "Clomiphene",
+    "common_uses": [
+      "contraception",
+      "hormone_therapy",
+      "menstrual_disorder",
+      "infertility"
+    ],
+    "category": "hormonal_reproductive",
+    "prescription_required": true
+  },
+  {
+    "id": 269,
+    "name": "Tamoxifen",
+    "generic_name": "Tamoxifen",
+    "common_uses": [
+      "contraception",
+      "hormone_therapy",
+      "menstrual_disorder",
+      "infertility"
+    ],
+    "category": "hormonal_reproductive",
+    "prescription_required": true
+  },
+  {
+    "id": 270,
+    "name": "Allopurinol",
+    "generic_name": "Allopurinol",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 271,
+    "name": "Febuxostat",
+    "generic_name": "Febuxostat",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 272,
+    "name": "Colchicine",
+    "generic_name": "Colchicine",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 273,
+    "name": "Methotrexate",
+    "generic_name": "Methotrexate",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 274,
+    "name": "Sulfasalazine",
+    "generic_name": "Sulfasalazine",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 275,
+    "name": "Hydroxychloroquine",
+    "generic_name": "Hydroxychloroquine",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 276,
+    "name": "Leflunomide",
+    "generic_name": "Leflunomide",
+    "common_uses": [
+      "gout",
+      "arthritis",
+      "autoimmune_disease"
+    ],
+    "category": "antigout_antirheumatic",
+    "prescription_required": true
+  },
+  {
+    "id": 277,
+    "name": "Chloroquine",
+    "generic_name": "Chloroquine",
+    "common_uses": [
+      "malaria"
+    ],
+    "category": "antimalarial",
+    "prescription_required": true
+  },
+  {
+    "id": 278,
+    "name": "Artemether-Lumefantrine",
+    "generic_name": "Artemether-Lumefantrine",
+    "common_uses": [
+      "malaria"
+    ],
+    "category": "antimalarial",
+    "prescription_required": true
+  },
+  {
+    "id": 279,
+    "name": "Primaquine",
+    "generic_name": "Primaquine",
+    "common_uses": [
+      "malaria"
+    ],
+    "category": "antimalarial",
+    "prescription_required": true
+  },
+  {
+    "id": 280,
+    "name": "Quinine",
+    "generic_name": "Quinine",
+    "common_uses": [
+      "malaria"
+    ],
+    "category": "antimalarial",
+    "prescription_required": true
+  },
+  {
+    "id": 281,
+    "name": "Mefloquine",
+    "generic_name": "Mefloquine",
+    "common_uses": [
+      "malaria"
+    ],
+    "category": "antimalarial",
+    "prescription_required": true
+  },
+  {
+    "id": 282,
+    "name": "Albendazole",
+    "generic_name": "Albendazole",
+    "common_uses": [
+      "worm_infestation",
+      "parasitic_infection",
+      "scabies"
+    ],
+    "category": "antiparasitic",
+    "prescription_required": false
+  },
+  {
+    "id": 283,
+    "name": "Mebendazole",
+    "generic_name": "Mebendazole",
+    "common_uses": [
+      "worm_infestation",
+      "parasitic_infection",
+      "scabies"
+    ],
+    "category": "antiparasitic",
+    "prescription_required": false
+  },
+  {
+    "id": 284,
+    "name": "Ivermectin",
+    "generic_name": "Ivermectin",
+    "common_uses": [
+      "worm_infestation",
+      "parasitic_infection",
+      "scabies"
+    ],
+    "category": "antiparasitic",
+    "prescription_required": false
+  },
+  {
+    "id": 285,
+    "name": "Praziquantel",
+    "generic_name": "Praziquantel",
+    "common_uses": [
+      "worm_infestation",
+      "parasitic_infection",
+      "scabies"
+    ],
+    "category": "antiparasitic",
+    "prescription_required": false
+  },
+  {
+    "id": 286,
+    "name": "Lidocaine",
+    "generic_name": "Lidocaine",
+    "common_uses": [
+      "local_pain_relief",
+      "minor_procedures"
+    ],
+    "category": "local_anesthetic",
+    "prescription_required": true
+  },
+  {
+    "id": 287,
+    "name": "Bupivacaine",
+    "generic_name": "Bupivacaine",
+    "common_uses": [
+      "local_pain_relief",
+      "minor_procedures"
+    ],
+    "category": "local_anesthetic",
+    "prescription_required": true
+  },
+  {
+    "id": 288,
+    "name": "Paracetamol + Caffeine",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 289,
+    "name": "Cetirizine + Phenylephrine",
+    "generic_name": "Cetirizine",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 290,
+    "name": "Levocetirizine + Montelukast",
+    "generic_name": "Levocetirizine",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 291,
+    "name": "Domperidone + Omeprazole",
+    "generic_name": "Domperidone",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 292,
+    "name": "Amlodipine + Atorvastatin",
+    "generic_name": "Amlodipine",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 293,
+    "name": "Telmisartan + Hydrochlorothiazide",
+    "generic_name": "Telmisartan",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 294,
+    "name": "Metformin + Glimepiride",
+    "generic_name": "Metformin",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 295,
+    "name": "Salbutamol + Beclomethasone",
+    "generic_name": "Salbutamol",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 296,
+    "name": "Amoxicillin + Dicloxacillin",
+    "generic_name": "Amoxicillin",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 297,
+    "name": "Paracetamol + Ibuprofen",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "multiple_symptom_relief"
+    ],
+    "category": "fixed_dose_combination",
+    "prescription_required": false
+  },
+  {
+    "id": 298,
+    "name": "Aspirin + Clopidogrel",
+    "generic_name": "Aspirin",
+    "common_uses": [
+      "cardiovascular_risk_reduction",
+      "blood_clot_prevention"
+    ],
+    "category": "fixed_dose_combination_rx",
+    "prescription_required": true
+  },
+  {
+    "id": 299,
+    "name": "Atorvastatin + Ezetimibe",
+    "generic_name": "Atorvastatin",
+    "common_uses": [
+      "cardiovascular_risk_reduction",
+      "blood_clot_prevention"
+    ],
+    "category": "fixed_dose_combination_rx",
+    "prescription_required": true
+  },
+  {
+    "id": 300,
+    "name": "Paracetamol (Tylenol)",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 301,
+    "name": "Paracetamol (Panadol)",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 302,
+    "name": "Paracetamol (Crocin)",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 303,
+    "name": "Paracetamol (Calpol)",
+    "generic_name": "Paracetamol",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 304,
+    "name": "Aspirin (Ecosprin)",
+    "generic_name": "Aspirin",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 305,
+    "name": "Aspirin (Disprin)",
+    "generic_name": "Aspirin",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 306,
+    "name": "Aspirin (Bayer Aspirin)",
+    "generic_name": "Aspirin",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 307,
+    "name": "Mefenamic Acid (Meftal)",
+    "generic_name": "Mefenamic Acid",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 308,
+    "name": "Mefenamic Acid (Ponstan)",
+    "generic_name": "Mefenamic Acid",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 309,
+    "name": "Nimesulide (Nise)",
+    "generic_name": "Nimesulide",
+    "common_uses": [
+      "fever",
+      "headache",
+      "mild_to_moderate_pain",
+      "body_pain"
+    ],
+    "category": "analgesic_antipyretic",
+    "prescription_required": false
+  },
+  {
+    "id": 310,
+    "name": "Ibuprofen (Advil)",
+    "generic_name": "Ibuprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 311,
+    "name": "Ibuprofen (Brufen)",
+    "generic_name": "Ibuprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 312,
+    "name": "Ibuprofen (Nurofen)",
+    "generic_name": "Ibuprofen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 313,
+    "name": "Naproxen (Aleve)",
+    "generic_name": "Naproxen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 314,
+    "name": "Naproxen (Naprosyn)",
+    "generic_name": "Naproxen",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 315,
+    "name": "Diclofenac (Voltaren)",
+    "generic_name": "Diclofenac",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 316,
+    "name": "Piroxicam (Feldene)",
+    "generic_name": "Piroxicam",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 317,
+    "name": "Etoricoxib (Arcoxia)",
+    "generic_name": "Etoricoxib",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 318,
+    "name": "Celecoxib (Celebrex)",
+    "generic_name": "Celecoxib",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 319,
+    "name": "Meloxicam (Mobic)",
+    "generic_name": "Meloxicam",
+    "common_uses": [
+      "fever",
+      "headache",
+      "muscle_pain",
+      "menstrual_pain",
+      "inflammation"
+    ],
+    "category": "nsaid",
+    "prescription_required": false
+  },
+  {
+    "id": 320,
+    "name": "Ketorolac (Toradol)",
+    "generic_name": "Ketorolac",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "inflammation",
+      "post_surgical_pain"
+    ],
+    "category": "nsaid_prescription",
+    "prescription_required": true
+  },
+  {
+    "id": 321,
+    "name": "Indomethacin (Indocin)",
+    "generic_name": "Indomethacin",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "inflammation",
+      "post_surgical_pain"
+    ],
+    "category": "nsaid_prescription",
+    "prescription_required": true
+  },
+  {
+    "id": 322,
+    "name": "Tramadol (Ultram)",
+    "generic_name": "Tramadol",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 323,
+    "name": "Morphine (MS Contin)",
+    "generic_name": "Morphine",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 324,
+    "name": "Fentanyl (Duragesic)",
+    "generic_name": "Fentanyl",
+    "common_uses": [
+      "moderate_to_severe_pain",
+      "post_surgical_pain"
+    ],
+    "category": "opioid_analgesic",
+    "prescription_required": true
+  },
+  {
+    "id": 325,
+    "name": "Amoxicillin (Amoxil)",
+    "generic_name": "Amoxicillin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 326,
+    "name": "Amoxicillin-Clavulanate (Augmentin)",
+    "generic_name": "Amoxicillin-Clavulanate",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "skin_infection"
+    ],
+    "category": "penicillin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 327,
+    "name": "Cephalexin (Keflex)",
+    "generic_name": "Cephalexin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 328,
+    "name": "Cefuroxime (Zinnat)",
+    "generic_name": "Cefuroxime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 329,
+    "name": "Ceftriaxone (Rocephin)",
+    "generic_name": "Ceftriaxone",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 330,
+    "name": "Cefixime (Suprax)",
+    "generic_name": "Cefixime",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 331,
+    "name": "Cefdinir (Omnicef)",
+    "generic_name": "Cefdinir",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection",
+      "respiratory_infection"
+    ],
+    "category": "cephalosporin_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 332,
+    "name": "Azithromycin (Zithromax)",
+    "generic_name": "Azithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 333,
+    "name": "Azithromycin (Azithral)",
+    "generic_name": "Azithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 334,
+    "name": "Clarithromycin (Biaxin)",
+    "generic_name": "Clarithromycin",
+    "common_uses": [
+      "bacterial_infection",
+      "throat_infection",
+      "respiratory_infection"
+    ],
+    "category": "macrolide_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 335,
+    "name": "Ciprofloxacin (Cipro)",
+    "generic_name": "Ciprofloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 336,
+    "name": "Levofloxacin (Levaquin)",
+    "generic_name": "Levofloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 337,
+    "name": "Moxifloxacin (Avelox)",
+    "generic_name": "Moxifloxacin",
+    "common_uses": [
+      "bacterial_infection",
+      "urinary_tract_infection"
+    ],
+    "category": "fluoroquinolone_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 338,
+    "name": "Doxycycline (Vibramycin)",
+    "generic_name": "Doxycycline",
+    "common_uses": [
+      "bacterial_infection",
+      "acne",
+      "respiratory_infection"
+    ],
+    "category": "tetracycline_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 339,
+    "name": "Metronidazole (Flagyl)",
+    "generic_name": "Metronidazole",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 340,
+    "name": "Nitrofurantoin (Macrobid)",
+    "generic_name": "Nitrofurantoin",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 341,
+    "name": "Co-trimoxazole (Bactrim)",
+    "generic_name": "Co-trimoxazole",
+    "common_uses": [
+      "bacterial_infection",
+      "parasitic_infection"
+    ],
+    "category": "other_antibiotic",
+    "prescription_required": true
+  },
+  {
+    "id": 342,
+    "name": "Fluconazole (Diflucan)",
+    "generic_name": "Fluconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 343,
+    "name": "Itraconazole (Sporanox)",
+    "generic_name": "Itraconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 344,
+    "name": "Ketoconazole (Nizoral)",
+    "generic_name": "Ketoconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 345,
+    "name": "Terbinafine (Lamisil)",
+    "generic_name": "Terbinafine",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 346,
+    "name": "Clotrimazole (Canesten)",
+    "generic_name": "Clotrimazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 347,
+    "name": "Voriconazole (Vfend)",
+    "generic_name": "Voriconazole",
+    "common_uses": [
+      "fungal_infection",
+      "skin_infection"
+    ],
+    "category": "antifungal",
+    "prescription_required": true
+  },
+  {
+    "id": 348,
+    "name": "Acyclovir (Zovirax)",
+    "generic_name": "Acyclovir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 349,
+    "name": "Valacyclovir (Valtrex)",
+    "generic_name": "Valacyclovir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 350,
+    "name": "Oseltamivir (Tamiflu)",
+    "generic_name": "Oseltamivir",
+    "common_uses": [
+      "viral_infection"
+    ],
+    "category": "antiviral",
+    "prescription_required": true
+  },
+  {
+    "id": 351,
+    "name": "Cetirizine (Zyrtec)",
+    "generic_name": "Cetirizine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 352,
+    "name": "Levocetirizine (Xyzal)",
+    "generic_name": "Levocetirizine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 353,
+    "name": "Loratadine (Claritin)",
+    "generic_name": "Loratadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 354,
+    "name": "Desloratadine (Clarinex)",
+    "generic_name": "Desloratadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 355,
+    "name": "Fexofenadine (Allegra)",
+    "generic_name": "Fexofenadine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 356,
+    "name": "Chlorpheniramine (Piriton)",
+    "generic_name": "Chlorpheniramine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 357,
+    "name": "Diphenhydramine (Benadryl)",
+    "generic_name": "Diphenhydramine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 358,
+    "name": "Hydroxyzine (Atarax)",
+    "generic_name": "Hydroxyzine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 359,
+    "name": "Promethazine (Phenergan)",
+    "generic_name": "Promethazine",
+    "common_uses": [
+      "allergy",
+      "runny_nose",
+      "itching",
+      "hives"
+    ],
+    "category": "antihistamine",
+    "prescription_required": false
+  },
+  {
+    "id": 360,
+    "name": "Guaifenesin (Mucinex)",
+    "generic_name": "Guaifenesin",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 361,
+    "name": "Pseudoephedrine (Sudafed)",
+    "generic_name": "Pseudoephedrine",
+    "common_uses": [
+      "cough",
+      "cold",
+      "congestion"
+    ],
+    "category": "cough_cold",
+    "prescription_required": false
+  },
+  {
+    "id": 362,
+    "name": "Salbutamol (Ventolin)",
+    "generic_name": "Salbutamol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 363,
+    "name": "Salbutamol (Asthalin)",
+    "generic_name": "Salbutamol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 364,
+    "name": "Salmeterol (Serevent)",
+    "generic_name": "Salmeterol",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 365,
+    "name": "Ipratropium Bromide (Atrovent)",
+    "generic_name": "Ipratropium Bromide",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 366,
+    "name": "Tiotropium (Spiriva)",
+    "generic_name": "Tiotropium",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 367,
+    "name": "Montelukast (Singulair)",
+    "generic_name": "Montelukast",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 368,
+    "name": "Budesonide (Pulmicort)",
+    "generic_name": "Budesonide",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 369,
+    "name": "Fluticasone (Flovent)",
+    "generic_name": "Fluticasone",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 370,
+    "name": "Beclomethasone (Qvar)",
+    "generic_name": "Beclomethasone",
+    "common_uses": [
+      "asthma",
+      "wheezing",
+      "shortness_of_breath",
+      "copd"
+    ],
+    "category": "bronchodilator_respiratory",
+    "prescription_required": true
+  },
+  {
+    "id": 371,
+    "name": "Omeprazole (Prilosec)",
+    "generic_name": "Omeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 372,
+    "name": "Omeprazole (Omez)",
+    "generic_name": "Omeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 373,
+    "name": "Pantoprazole (Protonix)",
+    "generic_name": "Pantoprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 374,
+    "name": "Esomeprazole (Nexium)",
+    "generic_name": "Esomeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 375,
+    "name": "Rabeprazole (Aciphex)",
+    "generic_name": "Rabeprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 376,
+    "name": "Lansoprazole (Prevacid)",
+    "generic_name": "Lansoprazole",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 377,
+    "name": "Ranitidine (Zantac)",
+    "generic_name": "Ranitidine",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 378,
+    "name": "Famotidine (Pepcid)",
+    "generic_name": "Famotidine",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 379,
+    "name": "Magnesium Hydroxide (Milk of Magnesia)",
+    "generic_name": "Magnesium Hydroxide",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 380,
+    "name": "Simethicone (Gas-X)",
+    "generic_name": "Simethicone",
+    "common_uses": [
+      "acidity",
+      "heartburn",
+      "gastritis",
+      "acid_reflux"
+    ],
+    "category": "antacid_ppi",
+    "prescription_required": false
+  },
+  {
+    "id": 381,
+    "name": "Domperidone (Motilium)",
+    "generic_name": "Domperidone",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 382,
+    "name": "Ondansetron (Zofran)",
+    "generic_name": "Ondansetron",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 383,
+    "name": "Metoclopramide (Reglan)",
+    "generic_name": "Metoclopramide",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 384,
+    "name": "Dicyclomine (Bentyl)",
+    "generic_name": "Dicyclomine",
+    "common_uses": [
+      "nausea",
+      "vomiting",
+      "bloating",
+      "indigestion"
+    ],
+    "category": "gi_motility",
+    "prescription_required": false
+  },
+  {
+    "id": 385,
+    "name": "Loperamide (Imodium)",
+    "generic_name": "Loperamide",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 386,
+    "name": "Oral Rehydration Salts (ORS)",
+    "generic_name": "Oral Rehydration Salts",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 387,
+    "name": "Lactulose (Duphalac)",
+    "generic_name": "Lactulose",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 388,
+    "name": "Bisacodyl (Dulcolax)",
+    "generic_name": "Bisacodyl",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 389,
+    "name": "Sucralfate (Carafate)",
+    "generic_name": "Sucralfate",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 390,
+    "name": "Misoprostol (Cytotec)",
+    "generic_name": "Misoprostol",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 391,
+    "name": "Mesalamine (Asacol)",
+    "generic_name": "Mesalamine",
+    "common_uses": [
+      "diarrhea",
+      "dehydration",
+      "constipation",
+      "peptic_ulcer"
+    ],
+    "category": "gi_other",
+    "prescription_required": false
+  },
+  {
+    "id": 392,
+    "name": "Amlodipine (Norvasc)",
+    "generic_name": "Amlodipine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "angina"
+    ],
+    "category": "antihypertensive_ccb",
+    "prescription_required": true
+  },
+  {
+    "id": 393,
+    "name": "Nifedipine (Procardia)",
+    "generic_name": "Nifedipine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "angina"
+    ],
+    "category": "antihypertensive_ccb",
+    "prescription_required": true
+  },
+  {
+    "id": 394,
+    "name": "Losartan (Cozaar)",
+    "generic_name": "Losartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 395,
+    "name": "Telmisartan (Micardis)",
+    "generic_name": "Telmisartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 396,
+    "name": "Valsartan (Diovan)",
+    "generic_name": "Valsartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 397,
+    "name": "Olmesartan (Benicar)",
+    "generic_name": "Olmesartan",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_arb",
+    "prescription_required": true
+  },
+  {
+    "id": 398,
+    "name": "Ramipril (Altace)",
+    "generic_name": "Ramipril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 399,
+    "name": "Enalapril (Vasotec)",
+    "generic_name": "Enalapril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 400,
+    "name": "Lisinopril (Zestril)",
+    "generic_name": "Lisinopril",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension",
+      "heart_failure"
+    ],
+    "category": "antihypertensive_acei",
+    "prescription_required": true
+  },
+  {
+    "id": 401,
+    "name": "Atenolol (Tenormin)",
+    "generic_name": "Atenolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 402,
+    "name": "Metoprolol (Lopressor)",
+    "generic_name": "Metoprolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 403,
+    "name": "Bisoprolol (Zebeta)",
+    "generic_name": "Bisoprolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 404,
+    "name": "Carvedilol (Coreg)",
+    "generic_name": "Carvedilol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 405,
+    "name": "Propranolol (Inderal)",
+    "generic_name": "Propranolol",
+    "common_uses": [
+      "high_blood_pressure",
+      "angina",
+      "irregular_heartbeat"
+    ],
+    "category": "beta_blocker",
+    "prescription_required": true
+  },
+  {
+    "id": 406,
+    "name": "Hydrochlorothiazide (Microzide)",
+    "generic_name": "Hydrochlorothiazide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 407,
+    "name": "Furosemide (Lasix)",
+    "generic_name": "Furosemide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 408,
+    "name": "Spironolactone (Aldactone)",
+    "generic_name": "Spironolactone",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 409,
+    "name": "Acetazolamide (Diamox)",
+    "generic_name": "Acetazolamide",
+    "common_uses": [
+      "high_blood_pressure",
+      "fluid_retention",
+      "swelling"
+    ],
+    "category": "diuretic",
+    "prescription_required": true
+  },
+  {
+    "id": 410,
+    "name": "Clonidine (Catapres)",
+    "generic_name": "Clonidine",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 411,
+    "name": "Methyldopa (Aldomet)",
+    "generic_name": "Methyldopa",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 412,
+    "name": "Prazosin (Minipress)",
+    "generic_name": "Prazosin",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 413,
+    "name": "Doxazosin (Cardura)",
+    "generic_name": "Doxazosin",
+    "common_uses": [
+      "high_blood_pressure",
+      "hypertension"
+    ],
+    "category": "antihypertensive_other",
+    "prescription_required": true
+  },
+  {
+    "id": 414,
+    "name": "Atorvastatin (Lipitor)",
+    "generic_name": "Atorvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 415,
+    "name": "Rosuvastatin (Crestor)",
+    "generic_name": "Rosuvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 416,
+    "name": "Simvastatin (Zocor)",
+    "generic_name": "Simvastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 417,
+    "name": "Pravastatin (Pravachol)",
+    "generic_name": "Pravastatin",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 418,
+    "name": "Fenofibrate (Tricor)",
+    "generic_name": "Fenofibrate",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 419,
+    "name": "Gemfibrozil (Lopid)",
+    "generic_name": "Gemfibrozil",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 420,
+    "name": "Ezetimibe (Zetia)",
+    "generic_name": "Ezetimibe",
+    "common_uses": [
+      "high_cholesterol",
+      "cardiovascular_risk_reduction"
+    ],
+    "category": "lipid_lowering",
+    "prescription_required": true
+  },
+  {
+    "id": 421,
+    "name": "Metformin (Glucophage)",
+    "generic_name": "Metformin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 422,
+    "name": "Glimepiride (Amaryl)",
+    "generic_name": "Glimepiride",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 423,
+    "name": "Glipizide (Glucotrol)",
+    "generic_name": "Glipizide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 424,
+    "name": "Gliclazide (Diamicron)",
+    "generic_name": "Gliclazide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 425,
+    "name": "Sitagliptin (Januvia)",
+    "generic_name": "Sitagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 426,
+    "name": "Vildagliptin (Galvus)",
+    "generic_name": "Vildagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 427,
+    "name": "Linagliptin (Tradjenta)",
+    "generic_name": "Linagliptin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 428,
+    "name": "Pioglitazone (Actos)",
+    "generic_name": "Pioglitazone",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 429,
+    "name": "Empagliflozin (Jardiance)",
+    "generic_name": "Empagliflozin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 430,
+    "name": "Dapagliflozin (Farxiga)",
+    "generic_name": "Dapagliflozin",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 431,
+    "name": "Acarbose (Precose)",
+    "generic_name": "Acarbose",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 432,
+    "name": "Repaglinide (Prandin)",
+    "generic_name": "Repaglinide",
+    "common_uses": [
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "antidiabetic_oral",
+    "prescription_required": true
+  },
+  {
+    "id": 433,
+    "name": "Insulin Glargine (Lantus)",
+    "generic_name": "Insulin Glargine",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 434,
+    "name": "Insulin Aspart (NovoLog)",
+    "generic_name": "Insulin Aspart",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 435,
+    "name": "Insulin Regular (Humulin R)",
+    "generic_name": "Insulin Regular",
+    "common_uses": [
+      "type_1_diabetes",
+      "type_2_diabetes",
+      "high_blood_sugar"
+    ],
+    "category": "insulin",
+    "prescription_required": true
+  },
+  {
+    "id": 436,
+    "name": "Warfarin (Coumadin)",
+    "generic_name": "Warfarin",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 437,
+    "name": "Enoxaparin (Lovenox)",
+    "generic_name": "Enoxaparin",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 438,
+    "name": "Clopidogrel (Plavix)",
+    "generic_name": "Clopidogrel",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 439,
+    "name": "Rivaroxaban (Xarelto)",
+    "generic_name": "Rivaroxaban",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 440,
+    "name": "Apixaban (Eliquis)",
+    "generic_name": "Apixaban",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 441,
+    "name": "Dabigatran (Pradaxa)",
+    "generic_name": "Dabigatran",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 442,
+    "name": "Ticagrelor (Brilinta)",
+    "generic_name": "Ticagrelor",
+    "common_uses": [
+      "blood_clot_prevention",
+      "stroke_prevention",
+      "heart_attack_prevention"
+    ],
+    "category": "anticoagulant_antiplatelet",
+    "prescription_required": true
+  },
+  {
+    "id": 443,
+    "name": "Levothyroxine (Synthroid)",
+    "generic_name": "Levothyroxine",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 444,
+    "name": "Levothyroxine (Eltroxin)",
+    "generic_name": "Levothyroxine",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 445,
+    "name": "Methimazole (Tapazole)",
+    "generic_name": "Methimazole",
+    "common_uses": [
+      "hypothyroidism",
+      "hyperthyroidism"
+    ],
+    "category": "thyroid",
+    "prescription_required": true
+  },
+  {
+    "id": 446,
+    "name": "Prednisolone (Omnacortil)",
+    "generic_name": "Prednisolone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 447,
+    "name": "Prednisolone (Wysolone)",
+    "generic_name": "Prednisolone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 448,
+    "name": "Prednisone (Deltasone)",
+    "generic_name": "Prednisone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 449,
+    "name": "Dexamethasone (Decadron)",
+    "generic_name": "Dexamethasone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 450,
+    "name": "Hydrocortisone (Cortef)",
+    "generic_name": "Hydrocortisone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 451,
+    "name": "Methylprednisolone (Medrol)",
+    "generic_name": "Methylprednisolone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 452,
+    "name": "Betamethasone (Celestone)",
+    "generic_name": "Betamethasone",
+    "common_uses": [
+      "inflammation",
+      "allergic_reaction",
+      "autoimmune_flare"
+    ],
+    "category": "corticosteroid_systemic",
+    "prescription_required": true
+  },
+  {
+    "id": 453,
+    "name": "Sertraline (Zoloft)",
+    "generic_name": "Sertraline",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 454,
+    "name": "Fluoxetine (Prozac)",
+    "generic_name": "Fluoxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 455,
+    "name": "Escitalopram (Lexapro)",
+    "generic_name": "Escitalopram",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 456,
+    "name": "Paroxetine (Paxil)",
+    "generic_name": "Paroxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 457,
+    "name": "Citalopram (Celexa)",
+    "generic_name": "Citalopram",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 458,
+    "name": "Venlafaxine (Effexor)",
+    "generic_name": "Venlafaxine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 459,
+    "name": "Duloxetine (Cymbalta)",
+    "generic_name": "Duloxetine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 460,
+    "name": "Amitriptyline (Elavil)",
+    "generic_name": "Amitriptyline",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 461,
+    "name": "Bupropion (Wellbutrin)",
+    "generic_name": "Bupropion",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 462,
+    "name": "Mirtazapine (Remeron)",
+    "generic_name": "Mirtazapine",
+    "common_uses": [
+      "depression",
+      "anxiety"
+    ],
+    "category": "antidepressant",
+    "prescription_required": true
+  },
+  {
+    "id": 463,
+    "name": "Alprazolam (Xanax)",
+    "generic_name": "Alprazolam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 464,
+    "name": "Diazepam (Valium)",
+    "generic_name": "Diazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 465,
+    "name": "Lorazepam (Ativan)",
+    "generic_name": "Lorazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 466,
+    "name": "Clonazepam (Klonopin)",
+    "generic_name": "Clonazepam",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 467,
+    "name": "Zolpidem (Ambien)",
+    "generic_name": "Zolpidem",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 468,
+    "name": "Buspirone (Buspar)",
+    "generic_name": "Buspirone",
+    "common_uses": [
+      "anxiety",
+      "insomnia",
+      "muscle_spasm"
+    ],
+    "category": "anxiolytic_sedative",
+    "prescription_required": true
+  },
+  {
+    "id": 469,
+    "name": "Risperidone (Risperdal)",
+    "generic_name": "Risperidone",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 470,
+    "name": "Olanzapine (Zyprexa)",
+    "generic_name": "Olanzapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 471,
+    "name": "Quetiapine (Seroquel)",
+    "generic_name": "Quetiapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 472,
+    "name": "Aripiprazole (Abilify)",
+    "generic_name": "Aripiprazole",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 473,
+    "name": "Haloperidol (Haldol)",
+    "generic_name": "Haloperidol",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 474,
+    "name": "Clozapine (Clozaril)",
+    "generic_name": "Clozapine",
+    "common_uses": [
+      "schizophrenia",
+      "bipolar_disorder",
+      "severe_agitation"
+    ],
+    "category": "antipsychotic",
+    "prescription_required": true
+  },
+  {
+    "id": 475,
+    "name": "Phenytoin (Dilantin)",
+    "generic_name": "Phenytoin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 476,
+    "name": "Sodium Valproate (Depakote)",
+    "generic_name": "Sodium Valproate",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 477,
+    "name": "Carbamazepine (Tegretol)",
+    "generic_name": "Carbamazepine",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 478,
+    "name": "Levetiracetam (Keppra)",
+    "generic_name": "Levetiracetam",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 479,
+    "name": "Lamotrigine (Lamictal)",
+    "generic_name": "Lamotrigine",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 480,
+    "name": "Gabapentin (Neurontin)",
+    "generic_name": "Gabapentin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 481,
+    "name": "Pregabalin (Lyrica)",
+    "generic_name": "Pregabalin",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 482,
+    "name": "Topiramate (Topamax)",
+    "generic_name": "Topiramate",
+    "common_uses": [
+      "epilepsy",
+      "seizures",
+      "nerve_pain"
+    ],
+    "category": "anticonvulsant",
+    "prescription_required": true
+  },
+  {
+    "id": 483,
+    "name": "Baclofen (Lioresal)",
+    "generic_name": "Baclofen",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 484,
+    "name": "Tizanidine (Zanaflex)",
+    "generic_name": "Tizanidine",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 485,
+    "name": "Cyclobenzaprine (Flexeril)",
+    "generic_name": "Cyclobenzaprine",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 486,
+    "name": "Methocarbamol (Robaxin)",
+    "generic_name": "Methocarbamol",
+    "common_uses": [
+      "muscle_spasm",
+      "back_pain",
+      "neck_pain"
+    ],
+    "category": "muscle_relaxant",
+    "prescription_required": true
+  },
+  {
+    "id": 487,
+    "name": "Vitamin C (Celin)",
+    "generic_name": "Vitamin C",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 488,
+    "name": "Vitamin B12 (Cobadex)",
+    "generic_name": "Vitamin B12",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 489,
+    "name": "Vitamin B Complex (Becosules)",
+    "generic_name": "Vitamin B Complex",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 490,
+    "name": "Calcium Carbonate (Tums)",
+    "generic_name": "Calcium Carbonate",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 491,
+    "name": "Ferrous Sulfate (Feosol)",
+    "generic_name": "Ferrous Sulfate",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 492,
+    "name": "Multivitamin (Centrum)",
+    "generic_name": "Multivitamin",
+    "common_uses": [
+      "nutritional_deficiency",
+      "general_wellness",
+      "immune_support"
+    ],
+    "category": "vitamin_supplement",
+    "prescription_required": false
+  },
+  {
+    "id": 493,
+    "name": "Timolol Eye Drops (Timoptic)",
+    "generic_name": "Timolol Eye Drops",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 494,
+    "name": "Latanoprost (Xalatan)",
+    "generic_name": "Latanoprost",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 495,
+    "name": "Artificial Tears (Refresh Tears)",
+    "generic_name": "Artificial Tears",
+    "common_uses": [
+      "eye_infection",
+      "dry_eyes",
+      "glaucoma",
+      "allergic_conjunctivitis"
+    ],
+    "category": "ophthalmic",
+    "prescription_required": true
+  },
+  {
+    "id": 496,
+    "name": "Clobetasol (Temovate)",
+    "generic_name": "Clobetasol",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 497,
+    "name": "Mupirocin (Bactroban)",
+    "generic_name": "Mupirocin",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 498,
+    "name": "Fusidic Acid (Fucidin)",
+    "generic_name": "Fusidic Acid",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 499,
+    "name": "Permethrin (Elimite)",
+    "generic_name": "Permethrin",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  },
+  {
+    "id": 500,
+    "name": "Benzoyl Peroxide (PanOxyl)",
+    "generic_name": "Benzoyl Peroxide",
+    "common_uses": [
+      "skin_infection",
+      "eczema",
+      "acne",
+      "fungal_skin_infection",
+      "burns"
+    ],
+    "category": "dermatological",
+    "prescription_required": false
+  }
+]
