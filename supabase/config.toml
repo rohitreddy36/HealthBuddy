@@ -1,4 +1,4 @@
-project_id = "qyqnhcdqgjspmxdzbxny"
+project_id = "bebhshrzaxppcmfccqph"
 
 [auth.third_party.clerk]
 enabled = true
