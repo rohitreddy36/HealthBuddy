@@ -86,6 +86,162 @@ export type Database = {
         };
         Relationships: [];
       };
+      hospitals: {
+        Row: {
+          address: string | null;
+          created_at: string;
+          id: string;
+          latitude: number;
+          longitude: number;
+          name: string;
+          phone: string | null;
+          raw: Json | null;
+          rating: number | null;
+          review_count: number | null;
+          source: string;
+          source_id: string | null;
+          updated_at: string;
+          website: string | null;
+        };
+        Insert: {
+          address?: string | null;
+          created_at?: string;
+          id?: string;
+          latitude: number;
+          longitude: number;
+          name: string;
+          phone?: string | null;
+          raw?: Json | null;
+          rating?: number | null;
+          review_count?: number | null;
+          source: string;
+          source_id?: string | null;
+          updated_at?: string;
+          website?: string | null;
+        };
+        Update: {
+          address?: string | null;
+          created_at?: string;
+          id?: string;
+          latitude?: number;
+          longitude?: number;
+          name?: string;
+          phone?: string | null;
+          raw?: Json | null;
+          rating?: number | null;
+          review_count?: number | null;
+          source?: string;
+          source_id?: string | null;
+          updated_at?: string;
+          website?: string | null;
+        };
+        Relationships: [];
+      };
+      hospital_search_cache: {
+        Row: {
+          cache_key: string;
+          created_at: string;
+          expires_at: string;
+          payload: Json;
+        };
+        Insert: {
+          cache_key: string;
+          created_at?: string;
+          expires_at: string;
+          payload: Json;
+        };
+        Update: {
+          cache_key?: string;
+          created_at?: string;
+          expires_at?: string;
+          payload?: Json;
+        };
+        Relationships: [];
+      };
+      hospital_specialties: {
+        Row: {
+          hospital_id: string;
+          id: string;
+          specialty_id: string;
+        };
+        Insert: {
+          hospital_id: string;
+          id?: string;
+          specialty_id: string;
+        };
+        Update: {
+          hospital_id?: string;
+          id?: string;
+          specialty_id?: string;
+        };
+        Relationships: [];
+      };
+      medicines: {
+        Row: {
+          brand_names: string[];
+          common_uses: string[];
+          created_at: string;
+          description: string | null;
+          drug_class: string | null;
+          generic_name: string | null;
+          id: string;
+          name: string;
+          precautions: string[];
+          prescription_required: boolean;
+          side_effects: string[];
+          updated_at: string;
+        };
+        Insert: {
+          brand_names?: string[];
+          common_uses?: string[];
+          created_at?: string;
+          description?: string | null;
+          drug_class?: string | null;
+          generic_name?: string | null;
+          id?: string;
+          name: string;
+          precautions?: string[];
+          prescription_required?: boolean;
+          side_effects?: string[];
+          updated_at?: string;
+        };
+        Update: {
+          brand_names?: string[];
+          common_uses?: string[];
+          created_at?: string;
+          description?: string | null;
+          drug_class?: string | null;
+          generic_name?: string | null;
+          id?: string;
+          name?: string;
+          precautions?: string[];
+          prescription_required?: boolean;
+          side_effects?: string[];
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      medicine_symptoms: {
+        Row: {
+          id: string;
+          medicine_id: string;
+          relationship_type: string;
+          symptom_id: string;
+        };
+        Insert: {
+          id?: string;
+          medicine_id: string;
+          relationship_type?: string;
+          symptom_id: string;
+        };
+        Update: {
+          id?: string;
+          medicine_id?: string;
+          relationship_type?: string;
+          symptom_id?: string;
+        };
+        Relationships: [];
+      };
       profiles: {
         Row: {
           age: number | null;
@@ -161,6 +317,48 @@ export type Database = {
           result?: Json | null;
           severity?: string | null;
           user_id?: string;
+        };
+        Relationships: [];
+      };
+      specialties: {
+        Row: {
+          created_at: string;
+          description: string | null;
+          id: string;
+          name: string;
+        };
+        Insert: {
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name: string;
+        };
+        Update: {
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name?: string;
+        };
+        Relationships: [];
+      };
+      symptoms: {
+        Row: {
+          created_at: string;
+          description: string | null;
+          id: string;
+          name: string;
+        };
+        Insert: {
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name: string;
+        };
+        Update: {
+          created_at?: string;
+          description?: string | null;
+          id?: string;
+          name?: string;
         };
         Relationships: [];
       };

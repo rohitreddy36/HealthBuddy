@@ -22,7 +22,7 @@ const chatMessageInput = z.object({
 
 export const saveChatMessage = createServerFn({ method: "POST" })
   .middleware([requireAuth])
-  .inputValidator((i: unknown) => chatMessageInput.parse(i))
+  .validator((i: unknown) => chatMessageInput.parse(i))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
     await supabase.from("chat_messages").insert({

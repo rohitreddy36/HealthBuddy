@@ -118,7 +118,7 @@ export function renderReminderEmailHtml(content: ReminderContent) {
                 <table role="presentation" cellpadding="0" cellspacing="0">
                   <tr>
                     <td style="width:36px;height:36px;background:rgba(255,255,255,0.18);border-radius:10px;text-align:center;vertical-align:middle;font-size:18px;">&#128147;</td>
-                    <td style="padding-left:10px;color:#ffffff;font-size:18px;font-weight:600;">AIL Health</td>
+                    <td style="padding-left:10px;color:#ffffff;font-size:18px;font-weight:600;">HealthBuddy</td>
                   </tr>
                 </table>
                 <div style="color:rgba(255,255,255,0.92);font-size:13px;margin-top:10px;">Your daily reminder</div>
@@ -136,35 +136,32 @@ export function renderReminderEmailHtml(content: ReminderContent) {
               </td>
             </tr>
 
-            ${
-              content.summary
-                ? `<tr><td style="padding:16px 32px 0 32px;">
+            ${content.summary
+      ? `<tr><td style="padding:16px 32px 0 32px;">
                     <p style="margin:0;font-size:14px;line-height:1.6;color:#334155;background:#f8fafc;border-radius:12px;padding:14px 16px;">${escapeHtml(content.summary)}</p>
                   </td></tr>`
-                : ""
-            }
+      : ""
+    }
 
-            ${
-              content.avoid.length > 0
-                ? `<tr><td style="padding:20px 32px 0 32px;">
+            ${content.avoid.length > 0
+      ? `<tr><td style="padding:20px 32px 0 32px;">
                     <div style="font-size:13px;font-weight:600;color:#b45309;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;">
                       &#9888;&nbsp; Avoid these today
                     </div>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${listRows(content.avoid, "#f59e0b")}</table>
                   </td></tr>`
-                : ""
-            }
+      : ""
+    }
 
-            ${
-              content.selfCare.length > 0
-                ? `<tr><td style="padding:20px 32px 0 32px;">
+            ${content.selfCare.length > 0
+      ? `<tr><td style="padding:20px 32px 0 32px;">
                     <div style="font-size:13px;font-weight:600;color:#2f6fb0;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;">
                       &#10003;&nbsp; Keep doing
                     </div>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${listRows(content.selfCare, "#2f6fb0")}</table>
                   </td></tr>`
-                : ""
-            }
+      : ""
+    }
 
             <tr>
               <td style="padding:24px 32px 0 32px;">

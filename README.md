@@ -32,6 +32,23 @@ report explainer built with TanStack Start, Supabase, and Google Gemini.
   their dashboard directly (recent symptom checks, reports, and quick
   questions asked via the floating chat). Logged-out visitors see the
   marketing page instead.
+- **Explore** (`/explore`) — a Health Explorer for browsing the medicine &
+  symptom reference database (search, popular medicines, browse by
+  symptom), plus **Find nearby hospitals** (`/explore/hospitals`): enter
+  symptoms or a location and get a relevant specialty (never a diagnosis)
+  and a ranked list of nearby hospitals on a free Leaflet/OpenStreetMap map.
+  Both the symptom checker and the report explainer link straight into this
+  with the relevant specialty pre-filled ("Find Nearby Hospitals").
+- **Report → Medicine** — the report explainer now also extracts medicine
+  mentions (e.g. "Tab. Paracetamol 500 mg"), normalizes them, and checks
+  them against the medicines table. A verified match gets "Buy Online" /
+  "Pharmacy Near Me" search links (plain external search — HealthBuddy never
+  processes payments or claims real-time stock); an unverified one is
+  clearly labeled instead of linked.
+- **Emergency handling** — both the symptom checker and the report
+  explainer flag potentially urgent symptoms with a prominent banner
+  recommending immediate emergency care, and it takes priority over normal
+  hospital ranking in `/explore/hospitals`.
 
 ## Tech stack
 
@@ -125,6 +142,12 @@ CLI + Docker set up locally):
   table that stores the floating chat widget's history for signed-in
   users (logged-out visitors can still use the widget, nothing is saved
   for them).
+- `20260913100000_hospital_medicine_explorer.sql` adds the Explore/Hospital
+  Recommendation schema: `specialties`, `symptoms`, `medicines`,
+  `medicine_symptoms` (all public-read reference data, seeded with a small
+  illustrative dataset), plus `hospitals` / `hospital_specialties`
+  (persisted search results) and the server-only `hospital_search_cache`.
+  Run this migration for the Explore section and hospital search to work.
 
 ### 5. Run the dev server
 
@@ -208,6 +231,16 @@ See `.env.example` for the full list with inline comments. In short:
 - **Gemini**: `GEMINI_API_KEY`, `VITE_GEMINI_API_KEY`.
 - **Email reminders (optional)**: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`,
   `SMTP_PASS`, `SMTP_FROM_NAME`, `REMINDER_CRON_SECRET`.
+- **Hospital discovery (optional)**: `SERPAPI_API_KEY` (get one at
+  [serpapi.com](https://serpapi.com)), `HOSPITAL_CACHE_TTL_MINUTES`
+  (default 360). Without a key, `/explore/hospitals` and the hospital API
+  routes still work end-to-end but return an empty result with a clear
+  "not configured" message instead of live hospitals — nothing is
+  fabricated. No Google Maps key is required: the map is Leaflet +
+  OpenStreetMap tiles, geocoding is Nominatim, and "Get Directions" links
+  to OpenStreetMap's own directions UI. See "Hospital recommendation
+  architecture" below for the provider-swap path to Google Maps/Places
+  later.
 
 ## Project structure
 
@@ -223,15 +256,35 @@ src/
       analyze.tsx            Symptom checker
       chat.tsx                AI assistant
       documents.tsx           Report explainer
+      explore/                Health Explorer + hospital finder (see below)
     api/chat.ts              Streaming chat endpoint (Gemini)
+    api/hospitals/           Public REST API: nearby / recommend
+    api/medicines/           Public REST API: list / :id / search / by-symptom
   lib/
     health.functions.ts     Server functions: follow-ups, symptom analysis,
-                             document analysis, dashboard data
+                             document analysis (now also extracts + verifies
+                             medicines and a recommended specialty/urgency),
+                             dashboard data
+    ai.server.ts            Shared Gemini provider + resilient JSON-from-text
+                             helpers used by every AI-backed feature
     chat.functions.ts       Server functions: chat history read/write
     reminder.functions.ts   Server function: send "email me this" on demand
     email.server.ts         Nodemailer transport + HTML/text email template
     assistant.functions.ts  Server functions for the floating chat widget
                             (answers everyone, saves history for signed-in users)
+    geo.ts                  Haversine distance, cache-key rounding (pure, tested)
+    hospital-scoring.ts     Configurable weighted hospital ranking (pure, tested)
+    medicine-normalize.ts   Medicine mention name/strength parsing (pure, tested)
+    specialty-map.ts        Keyword fallback for specialty/urgency triage (pure, tested)
+    medicine-search-url.ts  "Find Medicine" external search URL builder (pure, tested)
+    hospital-service.server.ts   Feature A: triage, location resolution, search+rank
+    medicine-service.server.ts   Feature B/C: medicine/symptom queries, DB matching
+    hospital-cache.server.ts     Supabase-backed cache for hospital searches
+    hospital.functions.ts / medicine.functions.ts   Server-fn wrappers used by the UI
+    providers/               MapProvider/PlacesProvider/RoutingProvider/
+                              GeocodingProvider abstraction (SerpApi + Nominatim +
+                              OSM today; swap in Google Places/Routes/Geocoding
+                              later without touching the ranking/caching logic)
   routes/api/
     reminders/daily.ts      Bearer-token-protected endpoint the daily cron
                              hits to email everyone opted in
@@ -250,6 +303,10 @@ src/
     DashboardContent.tsx      Shared dashboard body, rendered at both "/"
                               (signed-in homepage) and /dashboard
     FloatingChatbot.tsx       Site-wide floating help widget
+    FindMedicineButton.tsx    Reusable "Find Medicine" external-search button
+    hospital/                 HospitalMap (Leaflet, lazy/SSR-safe), HospitalMarker,
+                              HospitalRecommendationCard/List, HospitalDetails,
+                              LocationInput (geolocation with manual fallback)
     ui/                       shadcn/ui components
 supabase/
   migrations/                SQL migrations, applied in filename order
@@ -258,6 +315,48 @@ supabase/
     daily-reminder.yml       GitHub Actions cron: POSTs to
                               /api/reminders/daily at 05:30 IST daily
 ```
+
+## Hospital recommendation architecture
+
+Feature A never talks to a specific map/places vendor directly -- everything
+goes through the provider interfaces in `src/lib/providers/types.ts`:
+
+```
+PlacesProvider    -> SerpApiPlacesProvider today   -> GooglePlacesProvider later
+GeocodingProvider -> NominatimGeocodingProvider today -> GoogleGeocodingProvider later
+RoutingProvider   -> OSM/OSRM directions link today -> GoogleRoutesProvider later
+MapProvider       -> HospitalMap renders Leaflet/OSM tiles today -> swap that one component for Google Maps later
+```
+
+`hospital-service.server.ts` (triage -> location resolution -> cached/live
+search -> `hospital-scoring.ts` ranking) only ever depends on these
+interfaces and on the normalized `Hospital` shape, so switching vendors
+later means adding one new provider file, not touching the ranking or
+caching logic. Hospital search results are cached in Supabase
+(`hospital_search_cache`, keyed by rounded lat/lng + radius + specialty --
+see `geo.ts`) so repeat searches for "basically the same place" don't
+re-hit SerpApi's free-tier quota; hospitals returned by a live search are
+also upserted into `public.hospitals` for reuse. Ranking weights
+(distance 35% / specialty match 35% / rating 15% / review count 10% /
+facility match 5%) live in `hospital-scoring.ts`, not in any UI component,
+so they can be tuned without touching React code.
+
+## Testing
+
+Pure logic (distance/ranking math, medicine name normalization, the
+keyword-based triage fallback, cache-key rounding, external search URL
+building) has unit tests under `src/lib/*.test.ts`, run with
+[Vitest](https://vitest.dev):
+
+```bash
+npm test          # run once
+npm run test:watch
+```
+
+This intentionally does not test the Supabase-backed services or API
+routes end-to-end (that needs a real/seeded database and API keys) --
+those are covered by manually exercising `/explore`, `/explore/hospitals`,
+and the report explainer against a project with the migrations applied.
 
 ## Deployment
 
