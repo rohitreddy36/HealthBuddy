@@ -112,7 +112,8 @@ cp .env.example .env
 | `SUPABASE_URL`, `VITE_SUPABASE_URL` | Supabase dashboard → Settings → API → Project URL |
 | `SUPABASE_PUBLISHABLE_KEY`, `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase dashboard → Settings → API → anon/publishable key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase dashboard → Settings → API → service_role key (**server-only, never expose to the client**) |
-| `GEMINI_API_KEY`, `VITE_GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com/apikey) |
+| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com/apikey), server-only |
+| `GROQ_API_KEY` | [Groq console](https://console.groq.com/keys), preferred chatbot provider, server-only |
 | `SMTP_USER`, `SMTP_PASS` | A Gmail address + a [Gmail App Password](https://myaccount.google.com/apppasswords) (only needed for email reminders — see below) |
 | `REMINDER_CRON_SECRET` | Any random string you generate yourself, e.g. `openssl rand -hex 32` (only needed for email reminders) |
 
@@ -228,7 +229,7 @@ See `.env.example` for the full list with inline comments. In short:
 - **Supabase**: `SUPABASE_URL` / `VITE_SUPABASE_URL`,
   `SUPABASE_PUBLISHABLE_KEY` / `VITE_SUPABASE_PUBLISHABLE_KEY`,
   `SUPABASE_SERVICE_ROLE_KEY`.
-- **Gemini**: `GEMINI_API_KEY`, `VITE_GEMINI_API_KEY`.
+- **AI**: server-only `GEMINI_API_KEY`, `GROQ_API_KEY`; optional `GEMINI_MODEL` / `GROQ_MODEL` overrides. Never expose AI keys through `VITE_` variables.
 - **Email reminders (optional)**: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`,
   `SMTP_PASS`, `SMTP_FROM_NAME`, `REMINDER_CRON_SECRET`.
 - **Hospital discovery (optional)**: `SERPAPI_API_KEY` (get one at
@@ -360,7 +361,42 @@ and the report explainer against a project with the migrations applied.
 
 ## Deployment
 
-The build targets Cloudflare via Nitro by default (see `vite.config.ts`).
+The build targets Vercel via Nitro (see `vite.config.ts`) and emits the
+Vercel Build Output API directory at `.vercel/output`.
 Set the same environment variables in your hosting provider, and make sure
 the Supabase Third Party Auth (Clerk) integration and migrations are applied
 against whichever Supabase project you point production at.
+
+### Chatbot configuration and knowledge
+
+Both `/api/chat` and the floating helper use `src/lib/chat-response.server.ts`.
+They try Groq first (`GROQ_API_KEY`, default model `openai/gpt-oss-120b`) and
+then Gemini (`GEMINI_API_KEY`, chat model `gemini-3.1-flash-lite`, configurable
+with `CHAT_GEMINI_MODEL`). Symptom/report analysis keeps its separate model. Each request
+has bounded input, output, and provider timeouts. Model overrides are optional.
+Set these server-only variables in **Vercel → Project → Settings → Environment
+Variables → Production**, then redeploy. A local `.env` is not uploaded by Git.
+Remove legacy `VITE_GEMINI_API_KEY` settings and rotate any key previously
+exposed in a client build. AI keys are never needed by the browser.
+
+The chatbot knows the website's navigation, symptom checks, report uploads,
+medicine explorer, hospital search, account flow, reminders, and limitations.
+Its server-side medical library contains 1,016 public-domain English
+MedlinePlus health topic summaries, retrieved by relevance for each question.
+See [medical source attribution and refresh instructions](data/MEDICAL-KNOWLEDGE.md).
+It does not have access to private records or every medical fact, and it does
+not diagnose or prescribe. Related source links appear below answers.
+
+Website usage questions receive the maintained application guide directly,
+without waiting for an AI provider. If both providers fail or have no key for
+a medical answer, the helper discloses the outage and returns relevant medical reference links.
+Database persistence failures do not discard floating-chat answers. Check
+Vercel function logs for `[health-chat] provider failed` with the provider,
+error type, and status (for example, 401 authentication or 429 quota). Prompts,
+health data, and keys are not included in these diagnostic messages.
+
+Verify with `npm test`, `npx tsc --noEmit`, and `npm run build`.
+With the dev server running, use `node scripts/smoke-chat.mjs http://127.0.0.1:8080`
+for synthetic live website, medical, follow-up, and emergency questions. This
+uses the configured providers and consumes a small amount of API quota.
+Push to the Vercel-linked production branch to trigger its existing deployment.

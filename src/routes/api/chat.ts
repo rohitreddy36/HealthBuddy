@@ -1,33 +1,79 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { convertToModelMessages, streamText, type UIMessage } from "ai";
-
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
-
-const SYSTEM = `You are AIL Health Advisor, a calm, supportive AI health assistant.
-- Provide general wellness guidance, explanations of symptoms, diet, lifestyle, and recovery tips.
-- Never diagnose or prescribe medication.
-- Use simple, reassuring language. Avoid alarming wording.
-- If the user describes a possible emergency (severe chest pain, difficulty breathing, stroke signs, suicidal thoughts, severe bleeding, loss of consciousness), tell them to seek urgent medical care immediately.
-- End complex answers with a gentle reminder that this is guidance only and not a replacement for a doctor.`;
+import { createUIMessageStream, createUIMessageStreamResponse } from "ai";
+import { assistantInputSchema, uiMessagesSchema } from "@/lib/chat-input";
+import { answerHealthChat } from "@/lib/chat-response.server";
 
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const { messages } = (await request.json()) as { messages?: UIMessage[] };
-        if (!Array.isArray(messages)) {
-          return new Response("Messages required", { status: 400 });
+        const reader = request.body?.getReader();
+        if (!reader) return new Response("Messages required", { status: 400 });
+        const chunks: Uint8Array[] = [];
+        let length = 0;
+        while (true) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          length += value.byteLength;
+          if (length > 128000) {
+            await reader.cancel();
+            return new Response("Conversation too large", { status: 413 });
+          }
+          chunks.push(value);
         }
-        const key = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
-        if (!key) return new Response("Missing GEMINI_API_KEY", { status: 500 });
-
-        const provider = createGoogleGenerativeAI({ apiKey: key });
-        const result = streamText({
-          model: provider("gemini-3.8-flash"),
-          system: SYSTEM,
-          messages: await convertToModelMessages(messages),
+        let body: unknown;
+        try {
+          const bytes = new Uint8Array(length);
+          let offset = 0;
+          for (const chunk of chunks) {
+            bytes.set(chunk, offset);
+            offset += chunk.length;
+          }
+          body = JSON.parse(new TextDecoder().decode(bytes));
+        } catch {
+          return new Response("Invalid JSON", { status: 400 });
+        }
+        const parsed = uiMessagesSchema.safeParse(body);
+        if (!parsed.success) return new Response("Invalid chat messages", { status: 400 });
+        const messages = parsed.data.messages.map((m) => ({
+          role: m.role,
+          content: m.parts
+            .filter((p) => p.type === "text")
+            .map((p) => p.text ?? "")
+            .join("\n"),
+        }));
+        const last = messages.at(-1);
+        if (last?.role !== "user")
+          return new Response("A user question is required", { status: 400 });
+        const history = messages.slice(0, -1).slice(-12);
+        while (
+          history.length &&
+          history.reduce((n, m) => n + m.content.length, last.content.length) > 24000
+        )
+          history.shift();
+        const input = assistantInputSchema.safeParse({ message: last.content, history });
+        if (!input.success)
+          return new Response("Question too long (maximum 2000 characters)", { status: 400 });
+        const stream = createUIMessageStream({
+          execute: async ({ writer }) => {
+            writer.write({ type: "start", messageId: crypto.randomUUID() });
+            const answer = await answerHealthChat(input.data);
+            writer.write({ type: "text-start", id: "answer" });
+            writer.write({ type: "text-delta", id: "answer", delta: answer.reply });
+            writer.write({ type: "text-end", id: "answer" });
+            for (const [index, source] of answer.sources.entries()) {
+              writer.write({
+                type: "source-url",
+                sourceId: String(index),
+                title: source.title,
+                url: source.url,
+              });
+            }
+            writer.write({ type: "finish", finishReason: "stop" });
+          },
+          onError: () => "Unable to answer right now. Please try again shortly.",
         });
-        return result.toUIMessageStreamResponse({ originalMessages: messages });
+        return createUIMessageStreamResponse({ stream });
       },
     },
   },

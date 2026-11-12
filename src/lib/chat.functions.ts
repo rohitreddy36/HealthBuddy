@@ -7,12 +7,14 @@ export const getChatHistory = createServerFn({ method: "GET" })
   .middleware([requireAuth])
   .handler(async ({ context }) => {
     const { supabase, userId } = context;
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("chat_messages")
       .select("id, role, content, created_at")
       .eq("user_id", userId)
-      .order("created_at");
-    return data ?? [];
+      .order("created_at", { ascending: false })
+      .limit(60);
+    if (error) throw new Error("Could not load chat history");
+    return (data ?? []).reverse();
   });
 
 const chatMessageInput = z.object({
@@ -25,10 +27,11 @@ export const saveChatMessage = createServerFn({ method: "POST" })
   .validator((i: unknown) => chatMessageInput.parse(i))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
-    await supabase.from("chat_messages").insert({
+    const { error } = await supabase.from("chat_messages").insert({
       user_id: userId,
       role: data.role,
       content: data.content,
     });
+    if (error) throw new Error("Could not save chat message");
     return { ok: true };
   });

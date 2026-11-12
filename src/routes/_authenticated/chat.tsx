@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
+import { ChatSources } from "@/components/ChatSources";
 import { Textarea } from "@/components/ui/textarea";
 import { getChatHistory, saveChatMessage } from "@/lib/chat.functions";
 
@@ -55,6 +56,16 @@ function Chat() {
           <Button variant="outline" size="sm" onClick={() => setAttempt((a) => a + 1)}>
             Try again
           </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              setInitial([]);
+              setError(null);
+            }}
+          >
+            Continue without saved history
+          </Button>
         </div>
       </div>
     );
@@ -76,9 +87,12 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const persistedIds = useRef(new Set(initial.map((m) => m.id)));
 
-  const { messages, sendMessage, status } = useChat({
+  const { messages, sendMessage, status, error, regenerate } = useChat({
     messages: initial,
-    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    transport: new DefaultChatTransport({
+      api: "/api/chat",
+      prepareSendMessagesRequest: ({ messages }) => ({ body: { messages: messages.slice(-13) } }),
+    }),
   });
 
   // Persist new messages
@@ -94,8 +108,14 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
           .trim();
         if (!text) continue;
         if (m.role !== "user" && m.role !== "assistant") continue;
-        await persist({ data: { role: m.role, content: text } });
-        persistedIds.current.add(m.id);
+        try {
+          persistedIds.current.add(m.id);
+          await persist({ data: { role: m.role, content: text } });
+        } catch {
+          persistedIds.current.delete(m.id);
+          toast.error("Your answer is available, but this message could not be saved.");
+          break;
+        }
       }
     })();
   }, [messages, status, persist]);
@@ -119,7 +139,7 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
       <div ref={scrollRef} className="flex-1 overflow-y-auto space-y-4 pb-4">
         {messages.length === 0 && (
           <div className="text-center text-muted-foreground text-sm mt-12">
-            <p>Ask me anything about your health, diet, or recovery.</p>
+            <p>Ask about health, diet, recovery, or how to use HealthBuddy.</p>
             <p className="mt-2 text-xs">e.g. "Can I drink coffee with a cold?"</p>
           </div>
         )}
@@ -137,6 +157,13 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
           return (
             <div key={m.id} className="text-sm leading-relaxed whitespace-pre-wrap">
               {text}
+              <ChatSources
+                sources={m.parts.flatMap((p) =>
+                  p.type === "source-url"
+                    ? [{ title: p.title ?? "Medical reference", url: p.url }]
+                    : [],
+                )}
+              />
             </div>
           );
         })}
@@ -146,6 +173,26 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
           </div>
         )}
       </div>
+
+      {error && (
+        <div role="alert" className="mb-3 rounded-xl border border-destructive/30 p-3 text-sm">
+          <p>The answer could not be loaded. Please try again.</p>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={() => regenerate()}
+            disabled={busy}
+          >
+            Retry answer
+          </Button>
+        </div>
+      )}
+      <p className="mb-2 text-xs text-muted-foreground">
+        Educational health information, not a diagnosis. For urgent symptoms, seek immediate medical
+        care.
+      </p>
 
       <form
         onSubmit={submit}
@@ -161,6 +208,7 @@ function ChatWindow({ initial }: { initial: UIMessage[] }) {
             }
           }}
           placeholder="Type your question…"
+          maxLength={2000}
           rows={1}
           className="border-0 shadow-none focus-visible:ring-0 resize-none min-h-[40px] max-h-32"
           autoFocus

@@ -9,26 +9,25 @@ import type { z } from "zod";
 // return JSON". See health.functions.ts and hospital-service.server.ts
 // for callers.
 //
-// The floating "HealthBuddy helper" widget (assistant.functions.ts) is the
-// one exception -- it runs on Groq instead (see groqGateway below), kept
-// separate from the Gemini-backed features above.
+// Both chat interfaces use Groq first with Gemini fallback. Other health
+// features use Gemini. API keys must be server-only environment variables.
 
-export const MODEL = "gemini-3.8-flash";
+export const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
 
 export function gateway() {
-  const key = process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY;
+  const key = process.env.GEMINI_API_KEY;
   if (!key) throw new Error("Missing GEMINI_API_KEY in environment variables");
   return createGoogleGenerativeAI({ apiKey: key });
 }
 
 export function isGeminiConfigured(): boolean {
-  return Boolean(process.env.GEMINI_API_KEY || import.meta.env.VITE_GEMINI_API_KEY);
+  return Boolean(process.env.GEMINI_API_KEY);
 }
 
 // Groq exposes an OpenAI-compatible chat completions endpoint, so it's
 // wired up through @ai-sdk/openai-compatible rather than a dedicated Groq
 // SDK package. Server-only key -- never prefixed with VITE_.
-export const GROQ_MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
+export const GROQ_MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 
 export function groqGateway() {
   const key = process.env.GROQ_API_KEY;
