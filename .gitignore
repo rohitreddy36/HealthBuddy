@@ -51,3 +51,4 @@ master_prompt_template.txt
 supabase/.branches
 supabase/.temp
 
+.env*
